@@ -1,79 +1,58 @@
 <?php
+
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
- *
  * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
  */
-
-
 class TypographyTestPage extends Page {
 
-	static $icon = "typography/images/treeicons/TypographyTestPage";
+	static $icon = 'typography/images/treeicons/TypographyTestPage';
 
-	//legacy
-	static function setAutoInclude($v) {return self::set_auto_include($v);}
+	static $auto_include = false;
 
-	protected static $auto_include = false;
-		static function set_auto_include($value) {self::$auto_include = $value;}
-		static function get_auto_include() {return self::$auto_include;}
-
-	protected static $parent_url_segment = "admin-only";
-		static function set_parent_url_segment($value) {self::$parent_url_segment = $value;}
-		static function get_parent_url_segment() {return self::$parent_url_segment;}
-
-
+	static $parent_url_segment = 'admin-only';
+	
 	static $defaults = array(
-		"URLSegment" => "typo",
-		"ShowInMenus" => false,
-		"ShowInSearch" => false,
-		"Title" => "Typography Test",
-		"Content" => 'auto-completed - do not alter',
+		'URLSegment' => 'typo',
+		'ShowInMenus' => false,
+		'ShowInSearch' => false,
+		'Title' => 'Typography Test',
+		'Content' => 'auto-completed - do not alter',
+		'MetaTitle' => 'Typography Test',
+		'ShowInMenus' => false,
+		'ShowInSearch' => false,
+		'Sort' => 99999
 	);
 
-	public function canCreate() {
-		$bt = defined('DB::USE_ANSI_SQL') ? "\"" : "`";
-		return !DataObject::get("SiteTree", "{$bt}ClassName{$bt} = 'TypographyTestPage'");
+	function canCreate() {
+		return ! DataObject::get_one($this->class);
 	}
 
-	public function requireDefaultRecords() {
-		parent::requireDefaultRecords();
+	function requireDefaultRecords() {
 		if(self::$auto_include) {
-			$check = DataObject::get_one("TypographyTestPage");
-			if(!$check) {
-				$page = new TypographyTestPage();
-				$page->ShowInMenus = 0;
-				$page->ShowInSearch = 0;
-				$page->Title = "typography test page";
-				$page->MetaTitle = "typography test page";
-				$page->PageTitle = "typography test page";
-				$page->Sort = 99999;
-				$page->URLSegment = "typo";
-				$parent = DataObject::get_one("Page", "URLSegment = '".self::$parent_url_segment."'");
+			$page = DataObject::get_one($this->class);
+			if(! $page) {
+				$page = new TypographyTestPage(self::$defaults);
+				$parent = SiteTree::get_by_link(self::$parent_url_segment);
 				if($parent) {
 					$page->ParentID = $parent->ID;
 				}
 				$page->writeToStage('Stage');
 				$page->publish('Stage', 'Live');
-				$page->URLSegment = "typo";
+				$page->URLSegment = self::$defaults['URLSegment'];
 				$page->writeToStage('Stage');
 				$page->publish('Stage', 'Live');
-
-				DB::alteration_message("TypographyTestPage","created");
+				DB::alteration_message('TypographyTestPage', 'created');
 			}
 		}
 	}
-
-
 }
 
 class TypographyTestPage_Controller extends Page_Controller {
-
-
+	
 	function init() {
 		parent::init();
-		Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
-		//Requirements::block(THIRDPARTY_DIR."/jquery/jquery.js");
-		//Requirements::javascript(Director::protocol()."ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");
+		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
 		Requirements::javascript('typography/javascript/typography.js');
 	}
 
@@ -155,9 +134,6 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	function typographyhtml() {
-		return $this->renderWith("TypographySample");
+		return $this->renderWith('TypographySample');
 	}
-
 }
-
-
