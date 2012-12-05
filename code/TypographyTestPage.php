@@ -24,7 +24,7 @@ class TypographyTestPage extends Page {
 		'Sort' => 99999
 	);
 
-	function canCreate() {
+	function canCreate($member = null) {
 		return ! DataObject::get_one($this->class);
 	}
 
