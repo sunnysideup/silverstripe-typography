@@ -87,7 +87,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 		$form = new Form(
 			$controller = $this,
 			$name = "TestForm",
-			$fields = new FieldSet(
+			$fields = new FieldList(
 				// List the your fields here
 				new HeaderField($name = "HeaderField1", $title = "HeaderField Level 1", 1),
 				new LiteralField($name = "LiteralField", "<p>NOTE: All fields up to EmailField are required and should be marked as such</p>"),
@@ -104,10 +104,10 @@ class TypographyTestPage_Controller extends Page_Controller {
 				$errorField4,
 				new HeaderField($name = "HeaderField2b", $title = "Field with right title", 2),
 				$rightTitle,
-				new TextareaField($name = "TextareaField", $title = "Textarea Field", 5, 5),
+				new TextField($name = "TextareaField", $title = "Textarea Field", 5, 5),
 				new EmailField("EmailField", "Email address"),
 				new HeaderField($name = "HeaderField2c", $title = "HeaderField Level 2", 2),
-				new DropdownField($name = "DropdownField",$title = "Dropdown Field",$source = Geoip::getCountryDropDown()),
+				new DropdownField($name = "DropdownField",$title = "Dropdown Field",array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
 				new OptionsetField($name = "OptionsetField",$title = "Optionset Field",$array),
 				new CheckboxSetField($name = "CheckboxSetField",$title = "Checkbox Set Field",$array),
 				new HeaderField($name = "HeaderField3", $title = "Other Fields", 3),
@@ -118,7 +118,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 				new HeaderField($name = "HeaderField4", $title = "Read-only Field", 3),
 				$readonlyField
 			),
-			$actions = new FieldSet(
+			$actions = new FieldList(
 					// List the action buttons here
 					new FormAction("signup", "Sign up")
 
