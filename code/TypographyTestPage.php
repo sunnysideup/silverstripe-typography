@@ -8,10 +8,12 @@ class TypographyTestPage extends Page {
 
 	static $icon = 'typography/images/treeicons/TypographyTestPage';
 
-	static $auto_include = false;
+	protected static $auto_include = false;
+		static function set_auto_include($b) {self::$auto_include = $b;}
 
 	static $parent_url_segment = 'admin-only';
-	
+		static function set_parent_url_segment($s) {self::$parent_url_segment = $s;}
+
 	static $defaults = array(
 		'URLSegment' => 'typo',
 		'ShowInMenus' => false,
@@ -49,7 +51,7 @@ class TypographyTestPage extends Page {
 }
 
 class TypographyTestPage_Controller extends Page_Controller {
-	
+
 	function init() {
 		parent::init();
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
@@ -130,7 +132,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	function TestForm() {
-		die("thank you for signing up to twenty years of free chocolate");
+		die("thank you for signing up to twenty years of free chocolate...");
 	}
 
 	function typographyhtml() {
