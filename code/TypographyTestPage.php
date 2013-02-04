@@ -63,6 +63,20 @@ class TypographyTestPage_Controller extends Page_Controller {
 		return array();
 	}
 
+	public function colours(){
+		$baseFolder = Director::baseFolder();
+		require($location.'typography/thirdparty/colourchart/csscolorchart.php');
+		$cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project());
+
+		echo '<h1>CSS colors found in: ' .
+			(is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
+
+		$themes = new CssColorChart();
+		$colourList = $themes->listColors($cssPath);
+		$this->customise(array("ColourInformation" => $colourList))->renderWith("TypographyColours");
+
+	}
+
 	function Form() {
 		$array = array();
 		$array[] = "green";
@@ -138,4 +152,18 @@ class TypographyTestPage_Controller extends Page_Controller {
 	function typographyhtml() {
 		return $this->renderWith('TypographySample');
 	}
+	public function SiteColours() {
+		Requirements::themedCSS("CssColorChart");
+		Requirements::javascript("typography/javascript/CssColorChart.js");
+		require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
+		$cssColorChart = new CssColorChart();
+		return $cssColorChart->listColors(Director::baseFolder()."/themes/");
+	}
+
+	function replacecolours() {
+		require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
+		$cssColorChart = new CssColorChart();
+		echo $cssColorChart->replaceColours(Director::baseFolder()."/themes/");
+	}
+
 }
