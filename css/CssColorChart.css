@@ -1,0 +1,34 @@
+
+#CssColorChart div.colorHolder {
+			overflow: hidden;
+			width: auto;
+		}
+			#CssColorChart div.colorHolder .colorSwatch {
+				float: left;
+				width: 90px;
+				height: 50px;
+			}
+			#CssColorChart div.colorHolder .colorName {
+				float: left;
+				width: 90px;
+				height: 35px;
+				text-align: center;
+				padding-top: 15px;
+			}
+			#CssColorChart div.colorHolder .colorToggle {
+				float: left;
+				width: 150px;
+				height: 35px;
+				padding-top: 15px;
+			}
+			#CssColorChart div.colorMatches {
+				display: none;
+				white-space: pre-wrap;
+				font-size: 13px;
+				padding-left: 180px;
+				clear: left;
+			}
+			#CssColorChart span.colorFilename {text-decoration: underline;}
+			#CssColorChart span.colorClass {color: #628e15;}
+			#CssColorChart span.colorProperty {color: #2c747c;}
+			#CssColorChart span.colorValue {color: #7854ba;}

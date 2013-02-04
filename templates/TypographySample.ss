@@ -1,4 +1,4 @@
-<p>This page comes into two parts: <a href="#typography">typography definitions</a> and <a href="#form">form definitions</a>.</p>
+<p>This page comes into three parts: <a href="#typography">typography definitions</a>, <a href="#CssColorChart">colour charts</a>, and <a href="#form">form definitions</a>.</p>
 
 <a name="typography"></a>
 <h1>Instructions for Typography Test Page</h1>
@@ -670,5 +670,10 @@
 <hr />
 <hr />
 <hr />
+
+<div id="CssColorChart">
+	<h1>Colours currently used on the site:</h1>
+	$SiteColours
+</div>
 
 <a name="form"></a>
