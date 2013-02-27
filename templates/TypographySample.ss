@@ -1,4 +1,4 @@
-<p>This page comes into three parts: <a href="#typography">typography definitions</a>, <a href="#CssColorChart">colour charts</a>, and <a href="#form">form definitions</a>.</p>
+<p>This page comes into three parts: <a href="#typography">typography definitions</a>, <% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %> and <a href="#form">form definitions</a>.</p>
 
 <a name="typography"></a>
 <h1>Instructions for Typography Test Page</h1>
@@ -636,10 +636,12 @@
 <hr />
 <hr />
 
+<% if SiteColours %>
 <div id="CssColorChart">
 	<h1>Colours currently used on the site:</h1>
 	$SiteColours
 </div>
+<% end_if %>
 
 <a id="form"></a>
 
