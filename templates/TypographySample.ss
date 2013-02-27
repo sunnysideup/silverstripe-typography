@@ -201,41 +201,6 @@
 	Proin ultrices nulla id enim.
 	Nullam mi.
 </p>
-<h1>heading one above colour table</h1>
-<p>
-	The table below can show the ten main colours for your site.
-	In order to do so, they must be specified by a coder in your typography.css file (using td.colour1{background-color: YourColour1Here;}, td.colour2{background-color: YourColour2Here;}, etc...).
-</p>
-<h1 id="ColourBlocks">Colour Blocks</h1>
-<p>The blocks below can help you identify the colours for the current website.</p>
-<table id="colourTable" summary="colour table" style="border-spacing: 10px; border-collapse:separate">
-	<tbody>
-		<tr>
-			<td class="colourCell backgroundcolour1"><span style="color: #FFF!important">colour 1</span><br /><span style="color: #000!important">colour 1</span></td>
-			<td class="colourCell backgroundcolour2"><span style="color: #FFF!important">colour 2</span><br /><span style="color: #000!important">colour 2</span></td>
-			<td class="colourCell backgroundcolour3"><span style="color: #FFF!important">colour 3</span><br /><span style="color: #000!important">colour 3</span></td>
-		</tr>
-		<tr>
-			<td class="colourCell backgroundcolour4"><span style="color: #FFF!important">colour 4</span><br /><span style="color: #000!important">colour 4</span></td>
-			<td class="colourCell backgroundcolour5"><span style="color: #FFF!important">colour 5</span><br /><span style="color: #000!important">colour 5</span></td>
-			<td class="colourCell backgroundcolour6"><span style="color: #FFF!important">colour 6</span><br /><span style="color: #000!important">colour 6</span></td>
-		</tr>
-		<tr>
-			<td class="colourCell backgroundcolour7"><span style="color: #FFF!important">colour 7</span><br /><span style="color: #000!important">colour 7</span></td>
-			<td style="background-color: #fff!important; color: #000;">white</td>
-			<td style="background-color: #000!important; color: #FFF;">black</td>
-		</tr>
-	</tbody>
-</table>
-<p class="fontcolour1">Cras a condimentum quam. Etiam nisi leo, luctus nec tincidunt vel, tristique vitae quam. Mauris non mi leo.  </p>
-<p class="fontcolour2">Donec sit amet massa sit amet massa molestie ornare id ut dolor</p>
-<p class="fontcolour3">In laoreet libero in nunc bibendum iaculis.</p>
-<p class="fontcolour4">Proin ac odio quam. Ut pretium odio vitae est dignissim dignissim..</p>
-<p class="fontcolour5">Aenean sed lobortis felis.</p>
-<p class="fontcolour6">Cras a condimentum quam. Etiam nisi leo, luctus nec tincidunt vel, tristique vitae quam. Mauris non mi leo. </p>
-<p class="fontcolour7">Donec sit amet massa sit amet massa molestie ornare id ut dolor.</p>
-<p style="color:#000;">In laoreet libero in nunc bibendum iaculis.</p>
-<p style="color:#fff;">Aenean sed lobortis felis.</p>
 <h1>example of heading 1</h1>
 <p>
 	This is an example of a couple of left-align paragraphs with <strong>bold</strong>, <u>underlined</u>, and <em>italics</em> in it.
@@ -671,9 +636,11 @@
 <hr />
 <hr />
 
+
+<a name="form"></a>
+
+
 <div id="CssColorChart">
 	<h1>Colours currently used on the site:</h1>
 	$SiteColours
 </div>
-
-<a name="form"></a>
