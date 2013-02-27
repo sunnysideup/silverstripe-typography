@@ -502,7 +502,7 @@
 	There is a myriad of more sophisticated formatting you can apply to tables.
 	Shown here are cell headings and standard cells.
 </p>
-<table summary="test table">
+<table>
 	<tbody>
 	<tr>
 		<th scope="col">table col heading 1 + row heading 0</th>
@@ -636,11 +636,12 @@
 <hr />
 <hr />
 
-
-<a name="form"></a>
-
-
 <div id="CssColorChart">
 	<h1>Colours currently used on the site:</h1>
 	$SiteColours
 </div>
+
+<a id="form"></a>
+
+
+
