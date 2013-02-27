@@ -11,8 +11,12 @@ class TypographyTestPage extends Page {
 	protected static $auto_include = false;
 		static function set_auto_include($b) {self::$auto_include = $b;}
 
-	static $parent_url_segment = 'admin-only';
+	protected static $parent_url_segment = 'admin-only';
 		static function set_parent_url_segment($s) {self::$parent_url_segment = $s;}
+
+	protected static $css_folder = '';
+		static function set_css_folder($s) {self::$css_folder = $s;}
+		static function get_css_folder() {return self::$css_folder;}
 
 	static $defaults = array(
 		'URLSegment' => 'typo',
@@ -67,14 +71,11 @@ class TypographyTestPage_Controller extends Page_Controller {
 		$baseFolder = Director::baseFolder();
 		require($location.'typography/thirdparty/colourchart/csscolorchart.php');
 		$cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project());
-
 		echo '<h1>CSS colors found in: ' .
 			(is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
-
 		$themes = new CssColorChart();
 		$colourList = $themes->listColors($cssPath);
 		$this->customise(array("ColourInformation" => $colourList))->renderWith("TypographyColours");
-
 	}
 
 	function Form() {
@@ -98,6 +99,23 @@ class TypographyTestPage_Controller extends Page_Controller {
 		$rightTitle->setRightTitle("right title here");
 		$readonlyField = new ReadOnlyField($name = "ReadOnlyField", $title = "ReadOnlyField");
 		$readonlyField->setValue("read only value");
+		$groupedDropdownField = new GroupedDropdownField(
+			 $name = "dropdown",
+			 $title = "Simple Grouped Dropdown",
+			 $source = array(
+					"primary" => array(
+							"1" => "Green",
+							"2" => "Red",
+							"3" => "Blue",
+							"4" => "Orange"
+					),
+					"secondary" => array(
+							"11" => "Light Blue",
+							"12" => "Dark Brown",
+							"13" => "Pinkish Red"
+					)
+			 )
+		);
 		$form = new Form(
 			$controller = $this,
 			$name = "TestForm",
@@ -118,52 +136,64 @@ class TypographyTestPage_Controller extends Page_Controller {
 				$errorField4,
 				new HeaderField($name = "HeaderField2b", $title = "Field with right title", 2),
 				$rightTitle,
-				new TextField($name = "TextareaField", $title = "Textarea Field", 5, 5),
+				$textAreaField = new TextareaField($name = "TextareaField", $title = "Textarea Field"),
 				new EmailField("EmailField", "Email address"),
 				new HeaderField($name = "HeaderField2c", $title = "HeaderField Level 2", 2),
 				new DropdownField($name = "DropdownField",$title = "Dropdown Field",array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
 				new OptionsetField($name = "OptionsetField",$title = "Optionset Field",$array),
 				new CheckboxSetField($name = "CheckboxSetField",$title = "Checkbox Set Field",$array),
+				new CountryDropdownField($name = "CountryDropdownField",$title = "Countries"),
+				new CurrencyField($name = "CurrencyField",$title = "Bling bling"),
 				new HeaderField($name = "HeaderField3", $title = "Other Fields", 3),
 				new NumericField($name = "NumericField", $title = "Numeric Field "),
 				new DateField($name = "DateField", $title = "Date Field"),
-				new FileField($name = "FileField", $title = "Upload File"),
+				new DateField($name = "DateTimeField", $title = "Date and Time Field"),
+				new FileField($name = "FileField", $title = "File Field"),
+				new UploadField($name = "UploadField", $title = "Upload File"),
+				new ConfirmedPasswordField($name = "ConfirmPasswordField", $title = "Password"),
 				new CheckboxField($name = "CheckboxField", $title = "Checkbox Field"),
+				$groupedDropdownField,
 				new HeaderField($name = "HeaderField4", $title = "Read-only Field", 3),
 				$readonlyField
 			),
 			$actions = new FieldList(
 					// List the action buttons here
 					new FormAction("signup", "Sign up")
-
 			),
 			$requiredFields = new RequiredFields(
 				"TextField1","TextField2", "TextField3","ErrorField1","ErrorField2", "EmailField", "TextField3", "RightTitleField", "CheckboxField", "CheckboxSetField"
 			)
 		);
+		$textAreaField->setColumns(7);
 		$form->setMessage("warning message", "warning");
 		return $form;
 	}
 
-	function TestForm() {
-		die("thank you for signing up to twenty years of free chocolate...");
+	function TestForm($data) {
+		$this->redirectBack();
 	}
 
 	function typographyhtml() {
 		return $this->renderWith('TypographySample');
 	}
+
 	public function SiteColours() {
-		Requirements::themedCSS("CssColorChart");
-		Requirements::javascript("typography/javascript/CssColorChart.js");
-		require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
-		$cssColorChart = new CssColorChart();
-		return $cssColorChart->listColors(Director::baseFolder()."/themes/");
+		if($folder = TypographyTestPage::get_css_folder()) {
+			Requirements::themedCSS("CssColorChart", "typography");
+			Requirements::javascript("typography/javascript/CssColorChart.js");
+			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
+			$cssColorChart = new CssColorChart();
+			return $cssColorChart->listColors(Director::baseFolder()."/".$folder);
+		}
 	}
 
 	function replacecolours() {
-		require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
-		$cssColorChart = new CssColorChart();
-		echo $cssColorChart->replaceColours(Director::baseFolder()."/themes/");
+		if($folder = TypographyTestPage::get_css_folder()){
+			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
+			$cssColorChart = new CssColorChart();
+			return $cssColorChart->replaceColours(Director::baseFolder()."/".TypographyTestPage::get_css_folder());
+		}
+		return "no folder specified, use TypographyTestPage::set_css_folder()";
 	}
 
 }
