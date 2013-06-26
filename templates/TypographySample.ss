@@ -502,6 +502,19 @@
 	There is a myriad of more sophisticated formatting you can apply to tables.
 	Shown here are cell headings and standard cells.
 </p>
+<h4 id="tereomaori">testing extended character sets using Te Reo Māori</h4>
+<p>
+	The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, and ū. Ā, Ē, Ī, Ō, Ū<br /><br />
+ā is &amp;#257;&#257; , Ā is &amp;#256;&#256;<br /><br />
+
+ē is &amp;#275;&#275; , Ē is &amp;#274;&#274;<br /><br />
+
+ī is &amp;#299;&#299; , Ī is &amp;#298;&#298;<br /><br />
+
+ō is &amp;#333;&#333; , Ō is &amp;#332;&#332;<br /><br />
+
+ū is &amp;#363;&#363; , Ū is &amp;#362;&#362;<br /><br />
+</p>
 <table>
 	<tbody>
 	<tr>
