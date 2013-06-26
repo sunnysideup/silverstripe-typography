@@ -504,17 +504,51 @@
 </p>
 <h4 id="tereomaori">testing extended character sets using Te Reo Māori</h4>
 <p>
-	The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, and ū. Ā, Ē, Ī, Ō, Ū<br /><br />
-ā is &amp;#257;&#257; , Ā is &amp;#256;&#256;<br /><br />
-
-ē is &amp;#275;&#275; , Ē is &amp;#274;&#274;<br /><br />
-
-ī is &amp;#299;&#299; , Ī is &amp;#298;&#298;<br /><br />
-
-ō is &amp;#333;&#333; , Ō is &amp;#332;&#332;<br /><br />
-
-ū is &amp;#363;&#363; , Ū is &amp;#362;&#362;<br /><br />
+		The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū.
+		<br />ā: code (&amp;#257;) shows as: &#257;, Ā: code (&amp;#256;) shows as: &#256;
+		<br />ē: code (&amp;#275;) shows as: &#275;, Ē: code (&amp;#274;) shows as: &#274;
+		<br />ī: code (&amp;#299;) shows as: &#299;, Ī: code (&amp;#298;) shows as: &#298;
+		<br />ō: code (&amp;#333;) shows as: &#333;, Ō: code (&amp;#332;) shows as: &#332;
+		<br />ū: code (&amp;#363;) shows as: &#363;, Ū: code (&amp;#362;) shows as: &#362;
 </p>
+<h5>trying the same in bold</h5>
+<p>
+	<strong><b>
+		The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū.
+		<br />ā: code (&amp;#257;) shows as: &#257;, Ā: code (&amp;#256;) shows as: &#256;
+		<br />ē: code (&amp;#275;) shows as: &#275;, Ē: code (&amp;#274;) shows as: &#274;
+		<br />ī: code (&amp;#299;) shows as: &#299;, Ī: code (&amp;#298;) shows as: &#298;
+		<br />ō: code (&amp;#333;) shows as: &#333;, Ō: code (&amp;#332;) shows as: &#332;
+		<br />ū: code (&amp;#363;) shows as: &#363;, Ū: code (&amp;#362;) shows as: &#362;
+
+	</b></strong>
+</p>
+<h5>and in italics</h5>
+<p>
+	<i>
+		The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū.
+		<br />ā: code (&amp;#257;) shows as: &#257;, Ā: code (&amp;#256;) shows as: &#256;
+		<br />ē: code (&amp;#275;) shows as: &#275;, Ē: code (&amp;#274;) shows as: &#274;
+		<br />ī: code (&amp;#299;) shows as: &#299;, Ī: code (&amp;#298;) shows as: &#298;
+		<br />ō: code (&amp;#333;) shows as: &#333;, Ō: code (&amp;#332;) shows as: &#332;
+		<br />ū: code (&amp;#363;) shows as: &#363;, Ū: code (&amp;#362;) shows as: &#362;
+
+	</i>
+</p>
+<h5>and in italics + bold</h5>
+<p>
+	<strong><b>
+		<i><em>
+			The additional characters for Te Reo Maori (the Māori Language) are:  ā, ē, ī, ō, ū, Ā, Ē, Ī, Ō and Ū.
+			<br />ā: code (&amp;#257;) shows as: &#257;, Ā: code (&amp;#256;) shows as: &#256;
+			<br />ē: code (&amp;#275;) shows as: &#275;, Ē: code (&amp;#274;) shows as: &#274;
+			<br />ī: code (&amp;#299;) shows as: &#299;, Ī: code (&amp;#298;) shows as: &#298;
+			<br />ō: code (&amp;#333;) shows as: &#333;, Ō: code (&amp;#332;) shows as: &#332;
+			<br />ū: code (&amp;#363;) shows as: &#363;, Ū: code (&amp;#362;) shows as: &#362;
+		</em></i>
+	</strong>
+</p>
+
 <table>
 	<tbody>
 	<tr>
