@@ -8,6 +8,8 @@ class TypographyTestPage extends Page {
 
 	static $icon = 'typography/images/treeicons/TypographyTestPage';
 
+	static $description = 'Test typography and form settings';
+
 	protected static $auto_include = false;
 		static function set_auto_include($b) {self::$auto_include = $b;}
 
@@ -30,8 +32,12 @@ class TypographyTestPage extends Page {
 		'Sort' => 99999
 	);
 
+
 	function canCreate($member = null) {
-		return ! DataObject::get_one($this->class);
+		if(TypographyTestPage::get()->First()) {
+			return false;
+		}
+		return parent::canCreate($member);
 	}
 
 	function requireDefaultRecords() {
