@@ -42,7 +42,7 @@ class TypographyTestPage extends Page {
 
 	function requireDefaultRecords() {
 		if(self::$auto_include) {
-			$page = DataObject::get_one($this->class);
+			$page = $this->class::get()->First();
 			if(! $page) {
 				$page = new TypographyTestPage(self::$defaults);
 				$parent = SiteTree::get_by_link(self::$parent_url_segment);
