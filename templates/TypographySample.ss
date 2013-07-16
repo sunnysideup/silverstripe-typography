@@ -546,7 +546,7 @@
 			<br />ō: code (&amp;#333;) shows as: &#333;, Ō: code (&amp;#332;) shows as: &#332;
 			<br />ū: code (&amp;#363;) shows as: &#363;, Ū: code (&amp;#362;) shows as: &#362;
 		</em></i>
-	</strong>
+	</b></strong>
 </p>
 
 <table>

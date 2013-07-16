@@ -18,7 +18,20 @@ class TypographyTestPage extends Page {
 
 	protected static $css_folder = '';
 		static function set_css_folder($s) {self::$css_folder = $s;}
-		static function get_css_folder() {return self::$css_folder;}
+		public static function get_css_folder() {
+			if(self::$css_folder){
+				$folder = self::$css_folder;
+			}
+			else {
+				$folder = "themes/".SSViewer::current_theme();
+			}
+			$fullFolder = Director::baseFolder().'/'.$folder;
+			if(!file_exists($fullFolder)) {
+				user_error("could not find the default CSS folder $fullFolder");
+				$folder = '';
+			}
+			return $folder;
+		}
 
 	static $defaults = array(
 		'URLSegment' => 'typo',
