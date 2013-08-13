@@ -162,7 +162,6 @@ class TypographyTestPage_Controller extends Page_Controller {
 				new DropdownField($name = "DropdownField",$title = "Dropdown Field",array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
 				new OptionsetField($name = "OptionsetField",$title = "Optionset Field",$array),
 				new CheckboxSetField($name = "CheckboxSetField",$title = "Checkbox Set Field",$array),
-				new CountryDropdownField($name = "CountryDropdownField",$title = "Countries"),
 				new CurrencyField($name = "CurrencyField",$title = "Bling bling"),
 				new HeaderField($name = "HeaderField3", $title = "Other Fields", 3),
 				new NumericField($name = "NumericField", $title = "Numeric Field "),
