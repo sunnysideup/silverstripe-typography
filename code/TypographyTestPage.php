@@ -10,13 +10,13 @@ class TypographyTestPage extends Page {
 
 	static $description = 'Test typography and form settings';
 
-	protected static $auto_include = false;
+	private static $auto_include = false;
 		static function set_auto_include($b) {self::$auto_include = $b;}
 
-	protected static $parent_url_segment = 'admin-only';
+	private static $parent_url_segment = 'admin-only';
 		static function set_parent_url_segment($s) {self::$parent_url_segment = $s;}
 
-	protected static $css_folder = '';
+	private static $css_folder = '';
 		static function set_css_folder($s) {self::$css_folder = $s;}
 		public static function get_css_folder() {
 			if(self::$css_folder){
@@ -39,7 +39,6 @@ class TypographyTestPage extends Page {
 		'ShowInSearch' => false,
 		'Title' => 'Typography Test',
 		'Content' => 'auto-completed - do not alter',
-		'MetaTitle' => 'Typography Test',
 		'ShowInMenus' => false,
 		'ShowInSearch' => false,
 		'Sort' => 99999
