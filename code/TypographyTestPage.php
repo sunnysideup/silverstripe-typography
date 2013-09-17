@@ -6,18 +6,15 @@
  */
 class TypographyTestPage extends Page {
 
-	static $icon = 'typography/images/treeicons/TypographyTestPage';
+	private static $icon = 'typography/images/treeicons/TypographyTestPage';
 
-	static $description = 'Test typography and form settings';
+	private static $description = 'Test typography and form settings';
 
 	private static $auto_include = false;
-		static function set_auto_include($b) {self::$auto_include = $b;}
 
 	private static $parent_url_segment = 'admin-only';
-		static function set_parent_url_segment($s) {self::$parent_url_segment = $s;}
 
 	private static $css_folder = '';
-		static function set_css_folder($s) {self::$css_folder = $s;}
 		public static function get_css_folder() {
 			if(self::$css_folder){
 				$folder = self::$css_folder;
@@ -201,7 +198,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	public function SiteColours() {
-		if($folder = TypographyTestPage::get_css_folder()) {
+		if($folder = Config::init()->get("TypographyTestPage", "css_folder")) {
 			Requirements::themedCSS("CssColorChart", "typography");
 			Requirements::javascript("typography/javascript/CssColorChart.js");
 			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
@@ -211,10 +208,10 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	function replacecolours() {
-		if($folder = TypographyTestPage::get_css_folder()){
+		if($folder = Config::init()->get("TypographyTestPage", "css_folder")) {
 			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
 			$cssColorChart = new CssColorChart();
-			return $cssColorChart->replaceColours(Director::baseFolder()."/".TypographyTestPage::get_css_folder());
+			return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::init()->get("TypographyTestPage", "css_folder"));
 		}
 		return "no folder specified, use TypographyTestPage::set_css_folder()";
 	}
