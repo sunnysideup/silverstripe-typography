@@ -75,6 +75,11 @@ class TypographyTestPage extends Page {
 
 class TypographyTestPage_Controller extends Page_Controller {
 
+	private static $allowed_actions = array(
+		"colours" => "ADMIN",
+		"replacecolours" => "ADMIN"
+	);
+
 	function init() {
 		parent::init();
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
@@ -191,7 +196,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 		$this->redirectBack();
 	}
 
-	function typographyhtml() {
+	protected function typographyhtml() {
 		return $this->renderWith('TypographySample');
 	}
 
