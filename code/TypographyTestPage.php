@@ -30,7 +30,7 @@ class TypographyTestPage extends Page {
 			return $folder;
 		}
 
-	static $defaults = array(
+	private static $defaults = array(
 		'URLSegment' => 'typo',
 		'ShowInMenus' => false,
 		'ShowInSearch' => false,
