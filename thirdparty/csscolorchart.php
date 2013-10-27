@@ -15,7 +15,7 @@ class CssColorChart {
 	 * list of files that are not included (e.g. /var/www/webroot/themes/myfile.css)
 	 * @var Array
 	 */
-	public $ignoreFiles = array();
+	public $ignoreFiles = array("reset.css");
 
 	/**
 	 * Find, parse, and return output

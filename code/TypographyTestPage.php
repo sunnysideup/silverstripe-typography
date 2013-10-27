@@ -16,11 +16,11 @@ class TypographyTestPage extends Page {
 
 	private static $css_folder = '';
 		public static function get_css_folder() {
-			if(self::$css_folder){
-				$folder = self::$css_folder;
+			if(Config::inst()->get("TypographyTestPage", "css_folder")){
+				$folder = Config::inst()->get("TypographyTestPage", "css_folder");
 			}
 			else {
-				$folder = "themes/".SSViewer::current_theme();
+				$folder = "themes/".SSViewer::current_theme()."/css/";
 			}
 			$fullFolder = Director::baseFolder().'/'.$folder;
 			if(!file_exists($fullFolder)) {
@@ -91,7 +91,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 	public function colours(){
 		$baseFolder = Director::baseFolder();
 		require($location.'typography/thirdparty/colourchart/csscolorchart.php');
-		$cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project());
+		$cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project()."css/");
 		echo '<h1>CSS colors found in: ' .
 			(is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
 		$themes = new CssColorChart();
@@ -198,7 +198,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	public function SiteColours() {
-		if($folder = Config::inst()->get("TypographyTestPage", "css_folder")) {
+		if($folder = TypographyTestPage::get_css_folder()) {
 			Requirements::themedCSS("CssColorChart", "typography");
 			Requirements::javascript("typography/javascript/CssColorChart.js");
 			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
