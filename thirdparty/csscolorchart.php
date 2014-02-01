@@ -167,7 +167,7 @@ class CssColorChart {
 								for ($x = 0; $x < count($colorMatch[0]); $x++) {
 									$this->addToMatchResults(
 										array(
-											'color' => strtolower($this->colorNames[$colorMatch[1][$x]]),
+											'color' => strtolower($this->colorNames[strtolower($colorMatch[1][$x])]),
 											'stylesheet' => $cssFile,
 											'class' => $className,
 											'property' => $property,
