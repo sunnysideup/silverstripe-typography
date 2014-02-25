@@ -142,7 +142,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 			$name = "TestForm",
 			$fields = new FieldList(
 				// List the your fields here
-				new HeaderField($name = "HeaderField1", $title = "HeaderField Level 1", 1),
+				new HeaderField($name = "HeaderField1", $title = "Default Header Field"),
 				new LiteralField($name = "LiteralField", "<p>NOTE: All fields up to EmailField are required and should be marked as such</p>"),
 				new TextField($name = "TextField1", $title = "Text Field Example 1"),
 				new TextField($name = "TextField2", $title = "Text Field Example 2"),
@@ -197,6 +197,14 @@ class TypographyTestPage_Controller extends Page_Controller {
 		return $this->renderWith('TypographySample');
 	}
 
+	public function RandomLinkExternal(){
+		return "http://www.google.com/?q=".rand(0,100000);
+	}
+
+	public function RandomLinkInternal(){
+		return "/?q=".rand(0,100000);
+	}
+
 	public function SiteColours() {
 		if($folder = TypographyTestPage::get_css_folder()) {
 			Requirements::themedCSS("CssColorChart", "typography");
@@ -215,5 +223,6 @@ class TypographyTestPage_Controller extends Page_Controller {
 		}
 		return "no folder specified, use TypographyTestPage::set_css_folder()";
 	}
+
 
 }
