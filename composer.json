@@ -3,7 +3,7 @@
 	"type": "silverstripe-module",
 	"description": "Add a typography test page to your silverstripe website / application.",
 	"homepage": "http://www.silverstripe-webdevelopment.com",
-	"keywords": ["typography", "silverstripe"],
+	"keywords": ["typography", "silverstripe", "developer tool", "front-end design", "font styling", "fonts", "html editing", "TinyMCE"],
 	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
 	"authors":[
 		{
