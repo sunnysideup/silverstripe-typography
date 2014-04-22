@@ -14,6 +14,18 @@ class TypographyTestPage extends Page {
 
 	private static $parent_url_segment = 'admin-only';
 
+	/**
+	 * Standard SS variable.
+	 */
+	private static $singular_name = "Typography Page";
+		function i18n_singular_name() { return _t("TypographyPage.SINGULARNAME", "Typography Page");}
+
+	/**
+	 * Standard SS variable.
+	 */
+	private static $plural_name = "Pages";
+		function i18n_plural_name() { return _t("Typography.PLURALNAME", "Typography Pages");}
+
 	private static $css_folder = '';
 		public static function get_css_folder() {
 			if(Config::inst()->get("TypographyTestPage", "css_folder")){
