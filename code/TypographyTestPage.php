@@ -108,7 +108,8 @@ class TypographyTestPage_Controller extends Page_Controller {
 			(is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
 		$themes = new CssColorChart();
 		$colourList = $themes->listColors($cssPath);
-		$this->customise(array("ColourInformation" => $colourList))->renderWith("TypographyColours");
+		$html = DBField::create_field("HTMLText", $colourList);
+		echo $html;
 	}
 
 	function Form() {
