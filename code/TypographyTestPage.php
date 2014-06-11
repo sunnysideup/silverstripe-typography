@@ -102,7 +102,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 
 	public function colours(){
 		$baseFolder = Director::baseFolder();
-		require($location.'typography/thirdparty/colourchart/csscolorchart.php');
+		require($baseFolder.'/typography/thirdparty/colourchart/csscolorchart.php');
 		$cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project()."css/");
 		echo '<h1>CSS colors found in: ' .
 			(is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
