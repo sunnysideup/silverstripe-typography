@@ -16,6 +16,7 @@
 	<li><a href="#TereoMaori">Special characters</a></li>
 	<li><a href="#Tables">Tables</a></li>
 	<li><a href="#OtherFormats">Other Formats</a></li>
+	<li><a href="#InfoLinks">Informative Links</a></li>
 </ul>
 <p>
 	This page allows you to review typographic formatting for this website.
@@ -635,14 +636,37 @@
 		Integer fringilla, metus in adipiscing venenatis, nisi metus scelerisque magna, id fringilla dolor diam ac ligula.
 		Nulla consequat nunc id sem.
 	</p>
-	<hr />
-	<hr />
-	<p>these are horizontal lines</p>
-	<hr />
-	<hr />
-
 </div>
 
+<div id="InfoLinks">
+	<ul><h4>CSS Font Size Info</h4>
+			<li><a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/</a></li>
+			<li><a href="http://www.sitepoint.com/new-css3-relative-font-size/">http://www.sitepoint.com/new-css3-relative-font-size/</a></li>
+			<li><a href="http://pxtoem.com/">px to em converter</a></li>
+		</ul>
+		<ul><h4>Typography Articles</h4>
+			<li><a href="http://www.webdesignerdepot.com/2013/03/serif-vs-sans-the-final-battle/">Serif VS Sans</a></li>
+		</ul>
+		<ul><h4>Nice Responsive Site Examples</h4>
+			<li><a href="https://klim.co.nz/blog/bonnet-pompon/">https://klim.co.nz/</a></li>
+		</ul>
+		<ul><h4>Media Query Info</h4>
+			<li><a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#beyond-width">http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#beyond-width</a></li>
+			<li><a href="http://bradfrostweb.com/demo/ish/#hay">http://bradfrostweb.com/demo/ish/#hay</a></li>
+		</ul>
+		<ul><h4>Front End Boilerplate for Silverstripe</h4>
+			<li><a href="https://github.com/dnadesign/dna_frontend_boilerplate">https://github.com/dnadesign/dna_frontend_boilerplate</a></li>
+			<li><a href="https://github.com/Nami-Doc/Sprockets-PHP">https://github.com/Nami-Doc/Sprockets-PHP</a></li>
+			<li><a href="https://github.com/Zauberfisch/silverstripe-boilerplate/blob/21d302d8552caca4554d2998bbcc5ef5374c033c/mysite/scss/layout.scss">Example</a></li>
+			<li><a href="https://github.com/Zauberfisch/silverstripe-boilerplate/blob/21d302d8552caca4554d2998bbcc5ef5374c033c/mysite/css/layout.css">The Produced CSS</a></li>
+		</ul>
+</div>
+
+<hr />
+<hr />
+<p>these are horizontal lines</p>
+<hr />
+<hr />
 <hr />
 <hr />
 <hr />
