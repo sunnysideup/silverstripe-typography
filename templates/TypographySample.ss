@@ -611,7 +611,7 @@
 			Nulla consequat nunc id sem.
 		</p>
 	</blockquote>
-	<h1>and here is some quoted text (for a smaller quote)</h1>
+	<h5>and here is some quoted text (for a smaller quote)</h5>
 	<p>
 		Ut vulputate ante.
 		<q>Quote goes here</q>
