@@ -446,8 +446,6 @@
 					In feugiat consectetuer lectus.
 					Cras lacinia elit nec libero.
 				</li>
-			</ol>
-			<ol>
 				<li>
 					In consectetuer lectus.
 					Cras nec libero.
@@ -455,27 +453,19 @@
 						<li>
 							In feugiat consectetuer lectus.
 							Cras lacinia elit nec libero.
-							<ol>
-								<li>
-									In feugiat consectetuer lectus.
-									Cras lacinia elit nec libero.
-								</li>
-							</ol>
-							<ol>
-								<li>
-									In feugiat consectetuer lectus.
-									Cras lacinia elit nec libero.
-								</li>
-							</ol>
-							<ol>
-								<li>
-									In feugiat consectetuer lectus.
-									Cras lacinia elit nec libero.
-								</li>
-							</ol>
 						</li>
-					</ol>
-					<ol>
+						<li>
+							In feugiat consectetuer lectus.
+							Cras lacinia elit nec libero.
+						</li>
+						<li>
+							In feugiat consectetuer lectus.
+							Cras lacinia elit nec libero.
+						</li>
+						<li>
+							In feugiat consectetuer lectus.
+							Cras lacinia elit nec libero.
+						</li>
 						<li>
 							In feugiat consectetuer lectus.
 							Cras lacinia elit nec libero.
@@ -606,7 +596,7 @@
 		Ut gravida sodales nisi.
 		Morbi pede.
 	</p>
-	<h1>block quote below (for a larger quote)...</h1>
+	<h5>block quote below (for a larger quote)...</h5>
 	<blockquote>
 		<p>
 			Ut vulputate ante.
