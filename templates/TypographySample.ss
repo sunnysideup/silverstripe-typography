@@ -76,6 +76,7 @@
 		<li><a href="/">visited link</a></li>
 		<li><a href="$RandomLinkInternal">unvisited internal link</a></li>
 		<li><a href="$RandomLinkExternal">unvisited external link</a></li>
+		<li><a href="mailto:foo@bar.com">foo@bar.com</a></li>
 	</ul>
 </div>
 
