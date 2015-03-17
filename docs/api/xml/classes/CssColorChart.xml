@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="CssColorChart" namespace="" name="CssColorChart" abstract="false" final="false" start="12" end="502">
+  <file path="/var/www/_modules/typography/trunk/docs/en/phpdox/../../../thirdparty/colourchart" file="csscolorchart.php" realpath="/var/www/_modules/typography/trunk/thirdparty/colourchart/csscolorchart.php" size="14309" time="2015-03-14T11:02:59+13:00" unixtime="1426284179" sha1="19872471961e7abe7cd5422fe2684374dd093a63" relative="thirdparty/colourchart/csscolorchart.php"/>
+  <member name="ignoreFiles" type="array" visibility="public" line="18"/>
+  <method name="listColors" start="25" end="54" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Find, parse, and return output"/>
+      <param description="| Array $dir" type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="generated HTML of colour codes" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findCssFiles" start="60" end="72" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="dir" byreference="false" type="{unknown}"/>
+    <parameter name="pattern" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="findColors" start="78" end="150" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="cssFile" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="read line-by-line" line="81"/>
+      <comment value="Hex colors" line="96"/>
+    </inline>
+  </method>
+  <method name="sortMatches" start="157" end="183" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Sort $this-&gt;matchResults by HSV values"/>
+      <param type="object">
+        <type full="Null" namespace="" name="Null"/>
+      </param>
+      <return type="object">
+        <type full="Null" namespace="" name="Null"/>
+      </return>
+    </docblock>
+    <inline>
+      <comment value="Split each array up into H, S and V arrays" line="164"/>
+      <comment value="Sort in ascending order by H, then S, then V and recompile the array" line="171"/>
+    </inline>
+  </method>
+  <method name="addToMatchResults" start="190" end="194" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Add array to $this-&gt;matchResults"/>
+      <param type="object" variable="$arr">
+        <type full="Array" namespace="" name="Array"/>
+      </param>
+      <return type="object">
+        <type full="Null" namespace="" name="Null"/>
+      </return>
+    </docblock>
+    <parameter name="arr" byreference="false" type="array"/>
+  </method>
+  <method name="displayColors" start="200" end="218" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return HTML code of $this-&gt;matchResults"/>
+      <return description="HTML" type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="cssPrepare" start="225" end="237" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Clean CSS code, strip comments &amp; format one style per line"/>
+      <param type="object" variable="$buffer">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="buffer" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Strip out comments" line="226"/>
+      <comment value="each entry on one line" line="235"/>
+    </inline>
+  </method>
+  <method name="rgb2hex" start="244" end="251" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert RGB array to hexidecimal string"/>
+      <param description="green blue)" type="object">
+        <type full="Array(red" namespace="" name="Array(red"/>
+      </param>
+      <return type="object">
+        <type full="String" namespace="" name="String"/>
+      </return>
+    </docblock>
+    <parameter name="r" byreference="false" type="{unknown}"/>
+    <parameter name="g" byreference="false" type="{unknown}"/>
+    <parameter name="b" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="hex2rgb" start="258" end="271" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert hexidecimal string to RGB array"/>
+      <param type="object">
+        <type full="String" namespace="" name="String"/>
+      </param>
+      <return description="green, blue)" type="object">
+        <type full="Array(red" namespace="" name="Array(red"/>
+      </return>
+    </docblock>
+    <parameter name="hex" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="rgb2hsv" start="278" end="308" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert RGB array to HSV array"/>
+      <param description="green blue)" type="object">
+        <type full="Array(red" namespace="" name="Array(red"/>
+      </param>
+      <return description="saturation, value)" type="object">
+        <type full="Array(hue" namespace="" name="Array(hue"/>
+      </return>
+    </docblock>
+    <parameter name="r" byreference="false" type="{unknown}"/>
+    <parameter name="g" byreference="false" type="{unknown}"/>
+    <parameter name="b" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Convert RGB to HSV" line="279"/>
+    </inline>
+  </method>
+  <method name="hsv2rgb" start="315" end="344" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Convert HSV array to RGB array"/>
+      <param description="saturation value)" type="object">
+        <type full="Array(hue" namespace="" name="Array(hue"/>
+      </param>
+      <return description="green, blue)" type="object">
+        <type full="Array(red" namespace="" name="Array(red"/>
+      </return>
+    </docblock>
+    <parameter name="h" byreference="false" type="{unknown}"/>
+    <parameter name="s" byreference="false" type="{unknown}"/>
+    <parameter name="v" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="Convert HSV to RGB" line="316"/>
+    </inline>
+  </method>
+  <method name="genColorNames" start="350" end="500" abstract="false" final="false" static="false" visibility="protected">
+    <docblock>
+      <description compact="Return an array of colour names and their hexidecimal values"/>
+      <return type="object">
+        <type full="Array" namespace="" name="Array"/>
+      </return>
+    </docblock>
+  </method>
+</class>

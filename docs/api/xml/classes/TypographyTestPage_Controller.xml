@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TypographyTestPage_Controller" namespace="" name="TypographyTestPage_Controller" abstract="false" final="false" start="85" end="241">
+  <file path="/var/www/_modules/typography/trunk/docs/en/phpdox/../../../code" file="TypographyTestPage.php" realpath="/var/www/_modules/typography/trunk/code/TypographyTestPage.php" size="9261" time="2015-03-14T10:23:19+13:00" unixtime="1426281799" sha1="227332a551699ca7b7dac51dae90b4ab38422736" relative="code/TypographyTestPage.php"/>
+  <extends full="Page_Controller" namespace="" name="Page_Controller"/>
+  <member name="allowed_actions" type="array" visibility="private" line="87"/>
+  <method name="init" start="92" end="96" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="index" start="98" end="101" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="colours" start="103" end="113" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="Form" start="115" end="203" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="TestForm" start="205" end="207" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="typographyhtml" start="209" end="211" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="RandomLinkExternal" start="213" end="215" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="RandomLinkInternal" start="217" end="219" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="SiteColours" start="221" end="229" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="replacecolours" start="231" end="238" abstract="false" final="false" static="false" visibility="public"/>
+</class>

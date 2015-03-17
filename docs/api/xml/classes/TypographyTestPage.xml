@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TypographyTestPage" namespace="" name="TypographyTestPage" abstract="false" final="false" start="7" end="83">
+  <file path="/var/www/_modules/typography/trunk/docs/en/phpdox/../../../code" file="TypographyTestPage.php" realpath="/var/www/_modules/typography/trunk/code/TypographyTestPage.php" size="9261" time="2015-03-14T10:23:19+13:00" unixtime="1426281799" sha1="227332a551699ca7b7dac51dae90b4ab38422736" relative="code/TypographyTestPage.php"/>
+  <docblock>
+    <description compact="Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.">TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).</description>
+  </docblock>
+  <extends full="Page" namespace="" name="Page"/>
+  <member name="icon" type="string" default="'typography/images/treeicons/TypographyTestPage'" visibility="private" line="9"/>
+  <member name="description" type="string" default="'Test typography and form settings'" visibility="private" line="11"/>
+  <member name="auto_include" type="{unknown}" default="false" visibility="private" line="13"/>
+  <member name="parent_url_segment" type="string" default="'admin-only'" visibility="private" line="15"/>
+  <member name="singular_name" type="string" default="&quot;Typography Page&quot;" visibility="private" line="20">
+    <docblock>
+      <description compact="Standard SS variable."/>
+    </docblock>
+  </member>
+  <method name="i18n_singular_name" start="21" end="21" abstract="false" final="false" static="false" visibility="public"/>
+  <member name="plural_name" type="string" default="&quot;Pages&quot;" visibility="private" line="26">
+    <docblock>
+      <description compact="Standard SS variable."/>
+    </docblock>
+  </member>
+  <method name="i18n_plural_name" start="27" end="27" abstract="false" final="false" static="false" visibility="public"/>
+  <member name="css_folder" type="string" default="''" visibility="private" line="29"/>
+  <method name="get_css_folder" start="30" end="43" abstract="false" final="false" static="true" visibility="public"/>
+  <member name="defaults" type="array" visibility="private" line="45"/>
+  <method name="canCreate" start="57" end="62" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="member" byreference="false" type="{unknown}" default="null"/>
+  </method>
+  <method name="requireDefaultRecords" start="64" end="82" abstract="false" final="false" static="false" visibility="public"/>
+</class>
