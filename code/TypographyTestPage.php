@@ -103,7 +103,7 @@ class TypographyTestPage_Controller extends Page_Controller {
 	}
 
 	function ShowFirstHeading(){
-		return Config::inst()-get("TypographyTestPage", "include_first_heading_in_test_copy");
+		return Config::inst()->get("TypographyTestPage", "include_first_heading_in_test_copy");
 	}
 
 	public function colours(){
