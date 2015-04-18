@@ -1,4 +1,4 @@
-<h1 id="typography">Formatting Test Page</h1>
+<% if ShowFirstHeading %><h1 id="typography">Formatting Test Page</h1><% end_if %>
 <p>This page comes into three parts:
 	<a href="#typography">typography definitions</a>,
 	<% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %>

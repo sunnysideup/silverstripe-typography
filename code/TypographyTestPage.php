@@ -26,6 +26,8 @@ class TypographyTestPage extends Page {
 	private static $plural_name = "Pages";
 		function i18n_plural_name() { return _t("Typography.PLURALNAME", "Typography Pages");}
 
+	private static $include_first_heading_in_test_copy = false;
+
 	private static $css_folder = '';
 		public static function get_css_folder() {
 			if(Config::inst()->get("TypographyTestPage", "css_folder")){
@@ -98,6 +100,10 @@ class TypographyTestPage_Controller extends Page_Controller {
 	public function index() {
 		$this->Content = $this->typographyhtml();
 		return array();
+	}
+
+	function ShowFirstHeading(){
+		return Config::inst()-get("TypographyTestPage", "include_first_heading_in_test_copy");
 	}
 
 	public function colours(){
@@ -236,6 +242,5 @@ class TypographyTestPage_Controller extends Page_Controller {
 		}
 		return "no folder specified, use TypographyTestPage::set_css_folder()";
 	}
-
 
 }
