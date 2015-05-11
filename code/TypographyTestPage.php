@@ -188,7 +188,6 @@ class TypographyTestPage_Controller extends Page_Controller {
 				new DateField($name = "DateField", $title = "Date Field"),
 				new DateField($name = "DateTimeField", $title = "Date and Time Field"),
 				new FileField($name = "FileField", $title = "File Field"),
-				new UploadField($name = "UploadField", $title = "Upload File"),
 				new ConfirmedPasswordField($name = "ConfirmPasswordField", $title = "Password"),
 				new CheckboxField($name = "CheckboxField", $title = "Checkbox Field"),
 				$groupedDropdownField,
