@@ -1,6 +1,7 @@
 <% if ShowFirstHeading %><h1 id="typography">Formatting Test Page</h1><% end_if %>
-<p>This page comes into three parts:
+<p>Main sections on this page:
 	<a href="#typography">typography definitions</a>,
+	<a href="#WYSIWYG">how to setup WYSIWIG editor</a>,
 	<% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %>
 	and <a href="#Form">form definitions</a>.
 </p>
@@ -65,6 +66,7 @@
 <p>
 	It is important to remember that the page below only focusses on typography (writing) and not on the design of the page as a whole (e.g. where the menu goes, how wide the page is, etc...)
 </p>
+
 <div id="BasicStyles">
 	<h2>Basic styles</h2>
 	<ul>
@@ -659,20 +661,31 @@
 </div>
 
 <hr />
-<hr />
 <p>these are horizontal lines</p>
 <hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
+
+<div id="WYSIWYG">
+	<h3>Typography and WYSIWYG editor</h3>
+	<p>Below are the steps to make your HTMLEditorFields in the CMS WYSIWYG (<em>what you see is what you get</em>):</p>
+	<ol>
+		<li>Create a typography.css file.  In it, all styles should start with .typography e.g.
+			<pre>.typography p {font-size: 1.2em; color: mauve;}</pre>
+			You can also add styles without the .typography prefix. These definitions will be added as <em>styles</em> to your HTML Editor
+		</li>
+		<li>Include your typography file into your project:
+			<pre>Requirements::themedCSS("typography");</pre>
+		</li>
+		<li>Add the following line to your _config.php file:
+			<pre>
+				HtmlEditorConfig::get('cms')->setOption('ContentCSS', 'themes/myproject/css/typography.css');
+			</pre>
+		</li>
+		<li>For any areas of your project where you display content edited by an HTMLEditorField, add the typography class:
+			<pre>&lt;div class="typopgrahy"&gt;[editable HTML goes here]&lt;/div&gt;</pre>
+		</li>
+	</ol>
+</div>
+
 
 <% if SiteColours %>
 <div id="CssColorChart">
@@ -682,16 +695,6 @@
 <% end_if %>
 
 <hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-<hr />
-
 
 <h1 id="Form">Form Elements</h1>
 
