@@ -227,7 +227,6 @@ class TypographyTestPage_Controller extends Page_Controller {
 		if($folder = TypographyTestPage::get_css_folder()) {
 			Requirements::themedCSS("CssColorChart", "typography");
 			Requirements::javascript("typography/javascript/CssColorChart.js");
-			require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
 			$cssColorChart = new CssColorChart();
 			return $cssColorChart->listColors(Director::baseFolder()."/".$folder);
 		}
