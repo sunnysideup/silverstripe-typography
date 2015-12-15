@@ -631,33 +631,10 @@
 	</p>
 </div>
 
-<div id="InfoLinks">
-	<h4>CSS Font Size Info</h4>
-	<ul>
-		<li><a href="http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/">http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/</a></li>
-		<li><a href="http://www.sitepoint.com/new-css3-relative-font-size/">http://www.sitepoint.com/new-css3-relative-font-size/</a></li>
-		<li><a href="http://pxtoem.com/">px to em converter</a></li>
-	</ul>
-	<h4>Typography Articles</h4>
-	<ul>
-		<li><a href="http://www.webdesignerdepot.com/2013/03/serif-vs-sans-the-final-battle/">Serif VS Sans</a></li>
-	</ul>
-	<h4>Nice Responsive Site Examples</h4>
-	<ul>
-		<li><a href="https://klim.co.nz/blog/bonnet-pompon/">https://klim.co.nz/</a></li>
-	</ul>
-	<h4>Media Query Info</h4>
-	<ul>
-		<li><a href="http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#beyond-width">http://bradfrostweb.com/blog/post/7-habits-of-highly-effective-media-queries/#beyond-width</a></li>
-		<li><a href="http://bradfrostweb.com/demo/ish/#hay">http://bradfrostweb.com/demo/ish/#hay</a></li>
-	</ul>
-	<h4>Front End Boilerplate for Silverstripe</h4>
-	<ul>
-		<li><a href="https://github.com/dnadesign/dna_frontend_boilerplate">https://github.com/dnadesign/dna_frontend_boilerplate</a></li>
-		<li><a href="https://github.com/Nami-Doc/Sprockets-PHP">https://github.com/Nami-Doc/Sprockets-PHP</a></li>
-		<li><a href="https://github.com/Zauberfisch/silverstripe-boilerplate/blob/21d302d8552caca4554d2998bbcc5ef5374c033c/mysite/scss/layout.scss">Example</a></li>
-		<li><a href="https://github.com/Zauberfisch/silverstripe-boilerplate/blob/21d302d8552caca4554d2998bbcc5ef5374c033c/mysite/css/layout.css">The Produced CSS</a></li>
-	</ul>
+<div id="Videos">
+	<p>Below are two examples of videos as they are typically inserted into the editor:</p>
+	<p> <div class="media leftAlone"><iframe src="https://player.vimeo.com/video/19441320" width="600" height="338" frameborder="0" title="Graphic design can change your life" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></p>
+	<p><img class="leftAlone ss-htmleditorfield-file embed" src="https://i.ytimg.com/vi/8IjhhKHd8b4/hqdefault.jpg?r" width="459" height="344" data-url="http://www.youtube.com/watch?v=8IjhhKHd8b4" data-width="459" data-height="344" data-class="leftAlone" data-thumbnail="https://i.ytimg.com/vi/8IjhhKHd8b4/hqdefault.jpg?r" data-cssclass="leftAlone" /></p>
 </div>
 
 <hr />
