@@ -17,7 +17,7 @@
 	<li><a href="#TereoMaori">Special characters</a></li>
 	<li><a href="#Tables">Tables</a></li>
 	<li><a href="#OtherFormats">Other Formats</a></li>
-	<li><a href="#InfoLinks">Informative Links</a></li>
+	<li><a href="#Videos">Videos</a></li>
 </ul>
 <p>
 	This page allows you to review typographic formatting for this website.
