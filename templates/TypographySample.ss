@@ -201,7 +201,7 @@
 	</p>
 	<div>
 		<div class="captionImage">
-			<img  title="title" alt="alt" src="typography/images/kapiti.jpg" class="left" />
+			<img  title="title" alt="alt" src="typography/images/kapiti.jpg" />
 			<p class="caption">caption has been added here...</p>
 		</div>
 		<p>
