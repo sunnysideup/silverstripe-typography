@@ -23,26 +23,34 @@ class TypographyTestPage extends Page {
 	/**
 	 * Standard SS variable.
 	 */
-	private static $plural_name = "Pages";
+	private static $plural_name = "Typopgraphy Pages";
 		function i18n_plural_name() { return _t("Typography.PLURALNAME", "Typography Pages");}
 
 	private static $include_first_heading_in_test_copy = false;
 
 	private static $css_folder = '';
-		public static function get_css_folder() {
-			if(Config::inst()->get("TypographyTestPage", "css_folder")){
-				$folder = Config::inst()->get("TypographyTestPage", "css_folder");
-			}
-			else {
-				$folder = "themes/".SSViewer::current_theme()."/css/";
-			}
-			$fullFolder = Director::baseFolder().'/'.$folder;
-			if(!file_exists($fullFolder)) {
-				user_error("could not find the default CSS folder $fullFolder");
-				$folder = '';
-			}
-			return $folder;
+
+	public static function get_css_folder() {
+		if(Config::inst()->get("TypographyTestPage", "css_folder")){
+			$folder = Config::inst()->get("TypographyTestPage", "css_folder");
 		}
+		else {
+			$folder = "themes/".SSViewer::current_theme()."/css/";
+		}
+		$fullFolder = Director::baseFolder().'/'.$folder;
+		if(!file_exists($fullFolder)) {
+			user_error("could not find the default CSS folder $fullFolder");
+			$folder = '';
+		}
+		return $folder;
+	}
+
+	/**
+	 * use this to set up alternative form
+	 * formats
+	 * @var string
+	 */
+	private static $form_class_name = "Form";
 
 	private static $defaults = array(
 		'URLSegment' => 'typo',
@@ -156,7 +164,8 @@ class TypographyTestPage_Controller extends Page_Controller {
 					)
 			 )
 		);
-		$form = new Form(
+		$formClassName = Config::inst()->get("TypographyTestPage", "form_class_name");
+		$form = $formClassName::create(
 			$controller = $this,
 			$name = "TestForm",
 			$fields = new FieldList(
