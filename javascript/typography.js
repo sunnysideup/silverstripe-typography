@@ -39,15 +39,17 @@
                         }
                     );
                 }
-                jQuery(".colorSwatch").on(
+                jQuery(".expand-button-for-colours").on(
                     "click",
-                    function(){
-                        var e = document.getElementById('matches_'+jQuery(this).attr('id'));
+                    function(event){
+                        event.preventDefault();
+                        var e = document.getElementById('matches_'+jQuery(this).attr('data-colour'));
                         if (e.style.display == 'block') {
                             e.style.display = 'none';
                         } else {
                             e.style.display = 'block';
                         }
+                        return false;
                     }
                 );
 

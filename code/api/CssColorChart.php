@@ -200,10 +200,11 @@ class CssColorChart {
     protected function displayColors(){
         $out = '';
         foreach ($this->matchResults as $color => $matches) {
-            $out .= '		<div class="colorHolder">
-            <div class="colorSwatch" style="background-color: #'.$color.'" onclick="ViewFiles(\''.$color.'\')"></div>
-            <div class="colorName">#'.$color.'</div>
-            <div class="colorToggle"><a href="javascript:ViewFiles(\''.$color.'\')">view '.count($matches).' matches</a></div>
+            $out .= '
+            <div class="colorHolder">
+                <div class="colorSwatch expand-button-for-colours" style="background-color: #'.$color.'" data-colour="'.$color.'"></div>
+                <div class="colorName">#'.$color.'</div>
+                <div class="colorToggle"><a href="#" data-colour="'.$color.'" class="expand-button-for-colours">view '.count($matches).' matches</a></div>
             </div>
             <div class="colorMatches" id="matches_'.$color.'">';
             foreach ($matches as $match){
@@ -212,7 +213,8 @@ class CssColorChart {
                     '<span class="colorProperty">'.htmlspecialchars($match['property']).'</span>: ' .
                     '<span class="colorValue">'.htmlspecialchars($match['value'])."</span>;\n\t}\n";
             }
-            $out .= '</div>';
+            $out .= '
+            </div>';
         }
         return $out;
     }
