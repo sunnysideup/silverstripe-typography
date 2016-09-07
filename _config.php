@@ -5,6 +5,7 @@
  * author: Nicolaas - modules [at] sunnysideup.co.nz
 **/
 
+//HtmlEditorConfig::get('cms')->setOption('ContentCSS', 'themes/main/css/typography.css');
 
 HtmlEditorConfig::get('cms')->setOption(
     'valid_styles',
