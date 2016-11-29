@@ -9,7 +9,8 @@
     ------------------------------------------------------------------------
 */
 
-class CssColorChart {
+class CssColorChart
+{
 
     /*
      * list of files that are not included (e.g. /var/www/webroot/themes/myfile.css)
@@ -22,30 +23,37 @@ class CssColorChart {
      * @param String | Array $dir
      * @return String generated HTML of colour codes
      */
-    public function listColors($dir) {
+    public function listColors($dir)
+    {
         $this->matchResults = array();
 
         $cssFiles = array();
-        if (!is_array($dir)) $dir = array($dir);
-        foreach ($dir as $d)
+        if (!is_array($dir)) {
+            $dir = array($dir);
+        }
+        foreach ($dir as $d) {
             $cssFiles = array_merge($cssFiles, $this->findCssFiles($d, '*.css'));
+        }
 
         $this->colorNames = $this->genColorNames();
 
         $reg = array();
-        foreach ($this->colorNames as $cn => $hex)
+        foreach ($this->colorNames as $cn => $hex) {
             $reg[] = preg_quote($cn, '/');
+        }
         $this->colorRegex = implode('|', $reg);
 
         $ignore = array();
-        foreach ($this->ignoreFiles as $i)
+        foreach ($this->ignoreFiles as $i) {
             $ignore[] = preg_quote($i, '/');
+        }
 
         $ignoreRegex = '('.implode($ignore, '|').')';
 
         foreach ($cssFiles as $cssFile) {
-            if (strlen($ignoreRegex) == 2 || !preg_match('/'.$ignoreRegex.'/', $cssFile))
+            if (strlen($ignoreRegex) == 2 || !preg_match('/'.$ignoreRegex.'/', $cssFile)) {
                 $colors = $this->findColors($cssFile);
+            }
         }
 
         $this->sortMatches();
@@ -57,12 +65,15 @@ class CssColorChart {
      * @param String
      * @return generated HTML of colour codes
      */
-    protected function findCssFiles($dir, $pattern) {
-        if (is_file($dir)) return array($dir);
+    protected function findCssFiles($dir, $pattern)
+    {
+        if (is_file($dir)) {
+            return array($dir);
+        }
         $dir = rtrim(escapeshellcmd($dir), '/');
         $files = glob($dir.'/'.$pattern);
         $subDirs = glob("$dir/{.[^.]*,*}", GLOB_BRACE|GLOB_ONLYDIR);
-        if($subDirs && is_array($subDirs)) {
+        if ($subDirs && is_array($subDirs)) {
             foreach ($subDirs as $subDir) {
                 $arr   = $this->findCssFiles($subDir, $pattern);
                 $files = array_merge($files, $arr);
@@ -75,7 +86,8 @@ class CssColorChart {
      * @param String
      * @return Null
      */
-    protected function findColors($cssFile) {
+    protected function findColors($cssFile)
+    {
         $data = $this->cssPrepare(file_get_contents($cssFile));
 
         /* read line-by-line */
@@ -98,8 +110,9 @@ class CssColorChart {
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $matchLength = strlen($colorMatch[1][$x]);
                                     if ($matchLength == 7 || $matchLength == 4) {
-                                        if ($matchLength == 4)
+                                        if ($matchLength == 4) {
                                             $colorMatch[0][$x] = $colorMatch[0][$x].str_replace('#', '', $colorMatch[0][$x]);
+                                        }
                                         $this->addToMatchResults(
                                             array(
                                                 'color' => strtolower($colorMatch[0][$x]),
@@ -113,7 +126,7 @@ class CssColorChart {
                                 }
                             }
                             /* named colors */
-                            else if (preg_match_all('/\b('.$this->colorRegex.')\b/i', $value, $colorMatch)) {
+                            elseif (preg_match_all('/\b('.$this->colorRegex.')\b/i', $value, $colorMatch)) {
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $this->addToMatchResults(
                                         array(
@@ -127,8 +140,8 @@ class CssColorChart {
                                 }
                             }
                             /* rgb colors */
-                            else if (preg_match_all('/\brgba?\s?\(\s?(\d+)\s?,\s?(\d+)\s?,\s?(\d+)\s?(,\s?(\d+)\s?)?\)/i', $value, $colorMatch)) {
-                                for ($x = 0; $x < count($colorMatch[0]); $x++){
+                            elseif (preg_match_all('/\brgba?\s?\(\s?(\d+)\s?,\s?(\d+)\s?,\s?(\d+)\s?(,\s?(\d+)\s?)?\)/i', $value, $colorMatch)) {
+                                for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $hexcolor = $this->rgb2hex($colorMatch[1][$x], $colorMatch[2][$x], $colorMatch[3][$x]);
                                     $this->addToMatchResults(
                                         array(
@@ -146,7 +159,6 @@ class CssColorChart {
                 }
             }
         }
-
     }
 
     /**
@@ -154,8 +166,11 @@ class CssColorChart {
      * @param Null
      * @return Null
      */
-    protected function sortMatches() {
-        if (count($this->matchResults) == 0) return array();
+    protected function sortMatches()
+    {
+        if (count($this->matchResults) == 0) {
+            return array();
+        }
 
         foreach ($this->matchResults as $code => $matches) {
             $rgb = $this->hex2rgb($code);
@@ -173,8 +188,8 @@ class CssColorChart {
 
         $output = array();
         foreach ($order as $k => $v) {
-            list($hue,$sat,$val) = $v;
-            $rgb = $this->hsv2rgb($hue,$sat,$val);
+            list($hue, $sat, $val) = $v;
+            $rgb = $this->hsv2rgb($hue, $sat, $val);
             $hexcolor = $this->rgb2hex($rgb[0], $rgb[1], $rgb[2]);
             $output[$hexcolor] = $this->matchResults[$hexcolor];
         }
@@ -187,9 +202,12 @@ class CssColorChart {
      * @param Array $arr
      * @return Null
      */
-    protected function addToMatchResults(Array $arr) {
+    protected function addToMatchResults(array $arr)
+    {
         $color = str_replace('#', '', $arr['color']);
-        if (!isset($this->matchResults[$color])) $this->matchResults[$color] = array();
+        if (!isset($this->matchResults[$color])) {
+            $this->matchResults[$color] = array();
+        }
         array_push($this->matchResults[$color], $arr);
     }
 
@@ -197,7 +215,8 @@ class CssColorChart {
      * Return HTML code of $this->matchResults
      * @return String HTML
      */
-    protected function displayColors(){
+    protected function displayColors()
+    {
         $out = '';
         foreach ($this->matchResults as $color => $matches) {
             $out .= '
@@ -207,7 +226,7 @@ class CssColorChart {
                 <div class="colorToggle"><a href="#" data-colour="'.$color.'" class="expand-button-for-colours">view '.count($matches).' matches</a></div>
             </div>
             <div class="colorMatches" id="matches_'.$color.'">';
-            foreach ($matches as $match){
+            foreach ($matches as $match) {
                 $out .= '<span class="colorFilename">'.$match['stylesheet']."</span>\n";
                 $out .= "\t<span class=\"colorClass\">".preg_replace('/,/', ",\n\t   ", $match['class']) . "</span> {\n\t\t" .
                     '<span class="colorProperty">'.htmlspecialchars($match['property']).'</span>: ' .
@@ -224,7 +243,8 @@ class CssColorChart {
      * @param String $buffer
      * @return String
      */
-    public function cssPrepare($buffer) {
+    public function cssPrepare($buffer)
+    {
         $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer); // Strip out comments
         $buffer = str_replace(array("\r\n", "\r", "\n", "\t"), '', $buffer);
         $buffer = preg_replace('/\s+/', ' ', $buffer);
@@ -243,7 +263,8 @@ class CssColorChart {
      * @param Array(red, green, blue)
      * @return String
      */
-    public function rgb2hex($r, $g, $b) {
+    public function rgb2hex($r, $g, $b)
+    {
         $out = "";
         foreach (array($r, $g, $b) as $c) {
             $hex = base_convert($c, 10, 16);
@@ -257,17 +278,18 @@ class CssColorChart {
      * @param String
      * @return Array(red, green, blue)
      */
-    public function hex2rgb($hex) {
+    public function hex2rgb($hex)
+    {
         $hex = str_replace("#", "", $hex);
 
         if (strlen($hex) == 3) {
-            $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-            $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-            $b = hexdec(substr($hex,2,1).substr($hex,2,1));
+            $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
+            $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
+            $b = hexdec(substr($hex, 2, 1).substr($hex, 2, 1));
         } else {
-            $r = hexdec(substr($hex,0,2));
-            $g = hexdec(substr($hex,2,2));
-            $b = hexdec(substr($hex,4,2));
+            $r = hexdec(substr($hex, 0, 2));
+            $g = hexdec(substr($hex, 2, 2));
+            $b = hexdec(substr($hex, 4, 2));
         }
         return array($r, $g, $b);
     }
@@ -277,15 +299,16 @@ class CssColorChart {
      * @param Array(red, green, blue)
      * @return Array(hue, saturation, value)
      */
-    public function rgb2hsv($r,$g,$b) {
+    public function rgb2hsv($r, $g, $b)
+    {
         //Convert RGB to HSV
         $r /= 255;
         $g /= 255;
         $b /= 255;
-        $min = min($r,$g,$b);
-        $max = max($r,$g,$b);
+        $min = min($r, $g, $b);
+        $max = max($r, $g, $b);
 
-        switch($max) {
+        switch ($max) {
             case 0:
                 $h = $s = $v = 0;
                 break;
@@ -295,14 +318,17 @@ class CssColorChart {
                 break;
             default:
                 $delta = $max - $min;
-            if ($r == $max)
+            if ($r == $max) {
                 $h = 0 + ($g - $b) / $delta;
-            else if ($g == $max)
+            } elseif ($g == $max) {
                 $h = 2 + ($b - $r) / $delta;
-            else
+            } else {
                 $h = 4 + ($r - $g) / $delta;
+            }
             $h *= 60;
-            if ($h < 0 ) $h += 360;
+            if ($h < 0) {
+                $h += 360;
+            }
             $s = $delta / $max;
             $v = $max;
         }
@@ -314,7 +340,8 @@ class CssColorChart {
      * @param Array(hue, saturation, value)
      * @return Array(red, green, blue)
      */
-    public function hsv2rgb($h,$s,$v) {
+    public function hsv2rgb($h, $s, $v)
+    {
         //Convert HSV to RGB
         if ($s == 0) {
             $r = $g = $b = $v;
@@ -329,7 +356,7 @@ class CssColorChart {
             $q = ($v * (1.0 - ($f * $s)));
             $t = ($v * (1.0 - ((1.0 - $f) * $s)));
 
-            switch($hi) {
+            switch ($hi) {
                 case 0: $r = $v; $g = $t; $b = $p; break;
                 case 1: $r = $q; $g = $v; $b = $p; break;
                 case 2: $r = $p; $g = $v; $b = $t; break;
@@ -349,156 +376,156 @@ class CssColorChart {
      * Return an array of colour names and their hexidecimal values
      * @return Array
      */
-    protected function genColorNames() {
+    protected function genColorNames()
+    {
         return array(
-            "aliceblue"	=>	"#f0f8ff",
-            "antiquewhite"	=>	"#faebd7",
-            "aqua"	=>	"#00ffff",
-            "aquamarine"	=>	"#7fffd4",
-            "azure"	=>	"#f0ffff",
-            "beige"	=>	"#f5f5dc",
-            "bisque"	=>	"#ffe4c4",
-            "black"	=>	"#000000",
-            "blanchedalmond"	=>	"#ffebcd",
-            "blue"	=>	"#0000ff",
-            "blueviolet"	=>	"#8a2be2",
-            "brown"	=>	"#a52a2a",
-            "burlywood"	=>	"#deb887",
-            "cadetblue"	=>	"#5f9ea0",
-            "chartreuse"	=>	"#7fff00",
-            "chocolate"	=>	"#d2691e",
-            "coral"	=>	"#ff7f50",
-            "cornflowerblue"	=>	"#6495ed",
-            "cornsilk"	=>	"#fff8dc",
-            "crimson"	=>	"#dc143c",
-            "cyan"	=>	"#00ffff",
-            "darkblue"	=>	"#00008b",
-            "darkcyan"	=>	"#008b8b",
-            "darkgoldenrod"	=>	"#b8860b",
-            "darkgray"	=>	"#a9a9a9",
-            "darkgrey"	=>	"#a9a9a9",
-            "darkgreen"	=>	"#006400",
-            "darkkhaki"	=>	"#bdb76b",
-            "darkmagenta"	=>	"#8b008b",
-            "darkolivegreen"	=>	"#556b2f",
-            "darkorange"	=>	"#ff8c00",
-            "darkorchid"	=>	"#9932cc",
-            "darkred"	=>	"#8b0000",
-            "darksalmon"	=>	"#e9967a",
-            "darkseagreen"	=>	"#8fbc8f",
-            "darkslateblue"	=>	"#483d8b",
-            "darkslategray"	=>	"#2f4f4f",
-            "darkslategrey"	=>	"#2f4f4f",
-            "darkturquoise"	=>	"#00ced1",
-            "darkviolet"	=>	"#9400d3",
-            "deeppink"	=>	"#ff1493",
-            "deepskyblue"	=>	"#00bfff",
-            "dimgray"	=>	"#696969",
-            "dimgrey"	=>	"#696969",
-            "dodgerblue"	=>	"#1e90ff",
-            "firebrick"	=>	"#b22222",
-            "floralwhite"	=>	"#fffaf0",
-            "forestgreen"	=>	"#228b22",
-            "fuchsia"	=>	"#ff00ff",
-            "gainsboro"	=>	"#dcdcdc",
-            "ghostwhite"	=>	"#f8f8ff",
-            "gold"	=>	"#ffd700",
-            "goldenrod"	=>	"#daa520",
-            "gray"	=>	"#808080",
-            "grey"	=>	"#808080",
-            "green"	=>	"#008000",
-            "greenyellow"	=>	"#adff2f",
-            "honeydew"	=>	"#f0fff0",
-            "hotpink"	=>	"#ff69b4",
-            "indianred "	=>	"#cd5c5c",
-            "indigo "	=>	"#4b0082",
-            "ivory"	=>	"#fffff0",
-            "khaki"	=>	"#f0e68c",
-            "lavender"	=>	"#e6e6fa",
-            "lavenderblush"	=>	"#fff0f5",
-            "lawngreen"	=>	"#7cfc00",
-            "lemonchiffon"	=>	"#fffacd",
-            "lightblue"	=>	"#add8e6",
-            "lightcoral"	=>	"#f08080",
-            "lightcyan"	=>	"#e0ffff",
-            "lightgoldenrodyellow"	=>	"#fafad2",
-            "lightgray"	=>	"#d3d3d3",
-            "lightgrey"	=>	"#d3d3d3",
-            "lightgreen"	=>	"#90ee90",
-            "lightpink"	=>	"#ffb6c1",
-            "lightsalmon"	=>	"#ffa07a",
-            "lightseagreen"	=>	"#20b2aa",
-            "lightskyblue"	=>	"#87cefa",
-            "lightslategray"	=>	"#778899",
-            "lightslategrey"	=>	"#778899",
-            "lightsteelblue"	=>	"#b0c4de",
-            "lightyellow"	=>	"#ffffe0",
-            "lime"	=>	"#00ff00",
-            "limegreen"	=>	"#32cd32",
-            "linen"	=>	"#faf0e6",
-            "magenta"	=>	"#ff00ff",
-            "maroon"	=>	"#800000",
-            "mediumaquamarine"	=>	"#66cdaa",
-            "mediumblue"	=>	"#0000cd",
-            "mediumorchid"	=>	"#ba55d3",
-            "mediumpurple"	=>	"#9370db",
-            "mediumseagreen"	=>	"#3cb371",
-            "mediumslateblue"	=>	"#7b68ee",
-            "mediumspringgreen"	=>	"#00fa9a",
-            "mediumturquoise"	=>	"#48d1cc",
-            "mediumvioletred"	=>	"#c71585",
-            "midnightblue"	=>	"#191970",
-            "mintcream"	=>	"#f5fffa",
-            "mistyrose"	=>	"#ffe4e1",
-            "moccasin"	=>	"#ffe4b5",
-            "navajowhite"	=>	"#ffdead",
-            "navy"	=>	"#000080",
-            "oldlace"	=>	"#fdf5e6",
-            "olive"	=>	"#808000",
-            "olivedrab"	=>	"#6b8e23",
-            "orange"	=>	"#ffa500",
-            "orangered"	=>	"#ff4500",
-            "orchid"	=>	"#da70d6",
-            "palegoldenrod"	=>	"#eee8aa",
-            "palegreen"	=>	"#98fb98",
-            "paleturquoise"	=>	"#afeeee",
-            "palevioletred"	=>	"#db7093",
-            "papayawhip"	=>	"#ffefd5",
-            "peachpuff"	=>	"#ffdab9",
-            "peru"	=>	"#cd853f",
-            "pink"	=>	"#ffc0cb",
-            "plum"	=>	"#dda0dd",
-            "powderblue"	=>	"#b0e0e6",
-            "purple"	=>	"#800080",
-            "red"	=>	"#ff0000",
-            "rosybrown"	=>	"#bc8f8f",
-            "royalblue"	=>	"#4169e1",
-            "saddlebrown"	=>	"#8b4513",
-            "salmon"	=>	"#fa8072",
-            "sandybrown"	=>	"#f4a460",
-            "seagreen"	=>	"#2e8b57",
-            "seashell"	=>	"#fff5ee",
-            "sienna"	=>	"#a0522d",
-            "silver"	=>	"#c0c0c0",
-            "skyblue"	=>	"#87ceeb",
-            "slateblue"	=>	"#6a5acd",
-            "slategray"	=>	"#708090",
-            "slategrey"	=>	"#708090",
-            "snow"	=>	"#fffafa",
-            "springgreen"	=>	"#00ff7f",
-            "steelblue"	=>	"#4682b4",
-            "tan"	=>	"#d2b48c",
-            "teal"	=>	"#008080",
-            "thistle"	=>	"#d8bfd8",
-            "tomato"	=>	"#ff6347",
-            "turquoise"	=>	"#40e0d0",
-            "violet"	=>	"#ee82ee",
-            "wheat"	=>	"#f5deb3",
-            "white"	=>	"#ffffff",
-            "whitesmoke"	=>	"#f5f5f5",
-            "yellow"	=>	"#ffff00",
-            "yellowgreen"	=>	"#9acd32"
+            "aliceblue"    =>    "#f0f8ff",
+            "antiquewhite"    =>    "#faebd7",
+            "aqua"    =>    "#00ffff",
+            "aquamarine"    =>    "#7fffd4",
+            "azure"    =>    "#f0ffff",
+            "beige"    =>    "#f5f5dc",
+            "bisque"    =>    "#ffe4c4",
+            "black"    =>    "#000000",
+            "blanchedalmond"    =>    "#ffebcd",
+            "blue"    =>    "#0000ff",
+            "blueviolet"    =>    "#8a2be2",
+            "brown"    =>    "#a52a2a",
+            "burlywood"    =>    "#deb887",
+            "cadetblue"    =>    "#5f9ea0",
+            "chartreuse"    =>    "#7fff00",
+            "chocolate"    =>    "#d2691e",
+            "coral"    =>    "#ff7f50",
+            "cornflowerblue"    =>    "#6495ed",
+            "cornsilk"    =>    "#fff8dc",
+            "crimson"    =>    "#dc143c",
+            "cyan"    =>    "#00ffff",
+            "darkblue"    =>    "#00008b",
+            "darkcyan"    =>    "#008b8b",
+            "darkgoldenrod"    =>    "#b8860b",
+            "darkgray"    =>    "#a9a9a9",
+            "darkgrey"    =>    "#a9a9a9",
+            "darkgreen"    =>    "#006400",
+            "darkkhaki"    =>    "#bdb76b",
+            "darkmagenta"    =>    "#8b008b",
+            "darkolivegreen"    =>    "#556b2f",
+            "darkorange"    =>    "#ff8c00",
+            "darkorchid"    =>    "#9932cc",
+            "darkred"    =>    "#8b0000",
+            "darksalmon"    =>    "#e9967a",
+            "darkseagreen"    =>    "#8fbc8f",
+            "darkslateblue"    =>    "#483d8b",
+            "darkslategray"    =>    "#2f4f4f",
+            "darkslategrey"    =>    "#2f4f4f",
+            "darkturquoise"    =>    "#00ced1",
+            "darkviolet"    =>    "#9400d3",
+            "deeppink"    =>    "#ff1493",
+            "deepskyblue"    =>    "#00bfff",
+            "dimgray"    =>    "#696969",
+            "dimgrey"    =>    "#696969",
+            "dodgerblue"    =>    "#1e90ff",
+            "firebrick"    =>    "#b22222",
+            "floralwhite"    =>    "#fffaf0",
+            "forestgreen"    =>    "#228b22",
+            "fuchsia"    =>    "#ff00ff",
+            "gainsboro"    =>    "#dcdcdc",
+            "ghostwhite"    =>    "#f8f8ff",
+            "gold"    =>    "#ffd700",
+            "goldenrod"    =>    "#daa520",
+            "gray"    =>    "#808080",
+            "grey"    =>    "#808080",
+            "green"    =>    "#008000",
+            "greenyellow"    =>    "#adff2f",
+            "honeydew"    =>    "#f0fff0",
+            "hotpink"    =>    "#ff69b4",
+            "indianred "    =>    "#cd5c5c",
+            "indigo "    =>    "#4b0082",
+            "ivory"    =>    "#fffff0",
+            "khaki"    =>    "#f0e68c",
+            "lavender"    =>    "#e6e6fa",
+            "lavenderblush"    =>    "#fff0f5",
+            "lawngreen"    =>    "#7cfc00",
+            "lemonchiffon"    =>    "#fffacd",
+            "lightblue"    =>    "#add8e6",
+            "lightcoral"    =>    "#f08080",
+            "lightcyan"    =>    "#e0ffff",
+            "lightgoldenrodyellow"    =>    "#fafad2",
+            "lightgray"    =>    "#d3d3d3",
+            "lightgrey"    =>    "#d3d3d3",
+            "lightgreen"    =>    "#90ee90",
+            "lightpink"    =>    "#ffb6c1",
+            "lightsalmon"    =>    "#ffa07a",
+            "lightseagreen"    =>    "#20b2aa",
+            "lightskyblue"    =>    "#87cefa",
+            "lightslategray"    =>    "#778899",
+            "lightslategrey"    =>    "#778899",
+            "lightsteelblue"    =>    "#b0c4de",
+            "lightyellow"    =>    "#ffffe0",
+            "lime"    =>    "#00ff00",
+            "limegreen"    =>    "#32cd32",
+            "linen"    =>    "#faf0e6",
+            "magenta"    =>    "#ff00ff",
+            "maroon"    =>    "#800000",
+            "mediumaquamarine"    =>    "#66cdaa",
+            "mediumblue"    =>    "#0000cd",
+            "mediumorchid"    =>    "#ba55d3",
+            "mediumpurple"    =>    "#9370db",
+            "mediumseagreen"    =>    "#3cb371",
+            "mediumslateblue"    =>    "#7b68ee",
+            "mediumspringgreen"    =>    "#00fa9a",
+            "mediumturquoise"    =>    "#48d1cc",
+            "mediumvioletred"    =>    "#c71585",
+            "midnightblue"    =>    "#191970",
+            "mintcream"    =>    "#f5fffa",
+            "mistyrose"    =>    "#ffe4e1",
+            "moccasin"    =>    "#ffe4b5",
+            "navajowhite"    =>    "#ffdead",
+            "navy"    =>    "#000080",
+            "oldlace"    =>    "#fdf5e6",
+            "olive"    =>    "#808000",
+            "olivedrab"    =>    "#6b8e23",
+            "orange"    =>    "#ffa500",
+            "orangered"    =>    "#ff4500",
+            "orchid"    =>    "#da70d6",
+            "palegoldenrod"    =>    "#eee8aa",
+            "palegreen"    =>    "#98fb98",
+            "paleturquoise"    =>    "#afeeee",
+            "palevioletred"    =>    "#db7093",
+            "papayawhip"    =>    "#ffefd5",
+            "peachpuff"    =>    "#ffdab9",
+            "peru"    =>    "#cd853f",
+            "pink"    =>    "#ffc0cb",
+            "plum"    =>    "#dda0dd",
+            "powderblue"    =>    "#b0e0e6",
+            "purple"    =>    "#800080",
+            "red"    =>    "#ff0000",
+            "rosybrown"    =>    "#bc8f8f",
+            "royalblue"    =>    "#4169e1",
+            "saddlebrown"    =>    "#8b4513",
+            "salmon"    =>    "#fa8072",
+            "sandybrown"    =>    "#f4a460",
+            "seagreen"    =>    "#2e8b57",
+            "seashell"    =>    "#fff5ee",
+            "sienna"    =>    "#a0522d",
+            "silver"    =>    "#c0c0c0",
+            "skyblue"    =>    "#87ceeb",
+            "slateblue"    =>    "#6a5acd",
+            "slategray"    =>    "#708090",
+            "slategrey"    =>    "#708090",
+            "snow"    =>    "#fffafa",
+            "springgreen"    =>    "#00ff7f",
+            "steelblue"    =>    "#4682b4",
+            "tan"    =>    "#d2b48c",
+            "teal"    =>    "#008080",
+            "thistle"    =>    "#d8bfd8",
+            "tomato"    =>    "#ff6347",
+            "turquoise"    =>    "#40e0d0",
+            "violet"    =>    "#ee82ee",
+            "wheat"    =>    "#f5deb3",
+            "white"    =>    "#ffffff",
+            "whitesmoke"    =>    "#f5f5f5",
+            "yellow"    =>    "#ffff00",
+            "yellowgreen"    =>    "#9acd32"
         );
     }
-
 }

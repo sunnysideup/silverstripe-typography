@@ -3,8 +3,10 @@
     "type": "silverstripe-module",
     "description": "Add a typography test page to your silverstripe website / application.",
     "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
         "typography",
-        "silverstripe",
         "developer tool",
         "front-end design",
         "font styling",
