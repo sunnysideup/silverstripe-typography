@@ -634,7 +634,8 @@
 <div id="Videos">
     <p>Below are two examples of videos as they are typically inserted into the editor:</p>
     <p> <div class="media leftAlone"><iframe src="https://player.vimeo.com/video/19441320" width="600" height="338" frameborder="0" title="Graphic design can change your life" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></p>
-    <p><img class="leftAlone ss-htmleditorfield-file embed" src="https://i.ytimg.com/vi/8IjhhKHd8b4/hqdefault.jpg?r" width="459" height="344" data-url="http://www.youtube.com/watch?v=8IjhhKHd8b4" data-width="459" data-height="344" data-class="leftAlone" data-thumbnail="https://i.ytimg.com/vi/8IjhhKHd8b4/hqdefault.jpg?r" data-cssclass="leftAlone" /></p>
+    <p><div class="media leftAlone"><iframe width="480" height="270" src="https://www.youtube.com/embed/E8mjzRmQSN0?feature=oembed" frameborder="0" allowfullscreen=""></iframe></div></p>
+
 </div>
 
 <hr />
