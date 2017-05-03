@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<index xmlns="http://xml.phpdox.net/src" basedir="/var/www/_modules/typography/trunk">
-  <namespace name="">
-    <class name="TypographyTestPage" src="code/TypographyTestPage.php" description="Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly." xml="classes/TypographyTestPage.xml"/>
-    <class name="TypographyTestPage_Controller" src="code/TypographyTestPage.php" xml="classes/TypographyTestPage_Controller.xml"/>
-    <class name="CssColorChart" src="thirdparty/csscolorchart.php" xml="classes/CssColorChart.xml"/>
-  </namespace>
-</index>
