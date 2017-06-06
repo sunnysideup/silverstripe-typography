@@ -1,0 +1,7 @@
+---
+Name: 'TypographyRoutes'
+After: framework
+---
+Director:
+  rules:
+    'typo//$Action/$ID/$OtherID/$Version': TypographyTestPage_Controller

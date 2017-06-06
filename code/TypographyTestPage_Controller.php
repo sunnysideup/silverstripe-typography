@@ -4,42 +4,31 @@
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
  * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
  */
-class TypographyTestPage extends Page
+
+class TypographyTestPage_Controller extends Page_Controller
 {
-    private static $icon = 'typography/images/treeicons/TypographyTestPage';
-
-    private static $description = 'Test typography and form settings';
-
-    private static $auto_include = false;
-
-    private static $parent_url_segment = 'admin-only';
 
     /**
-     * Standard SS variable.
+     * @var string
      */
-    private static $singular_name = "Typography Page";
-    public function i18n_singular_name()
-    {
-        return _t("TypographyPage.SINGULARNAME", "Typography Page");
-    }
-
-    /**
-     * Standard SS variable.
-     */
-    private static $plural_name = "Typopgraphy Pages";
-    public function i18n_plural_name()
-    {
-        return _t("Typography.PLURALNAME", "Typography Pages");
-    }
-
     private static $include_first_heading_in_test_copy = false;
 
+    /**
+     * @var string
+     */
     private static $css_folder = '';
+
+    /**
+     * use this to set up alternative form
+     * formats
+     * @var string
+     */
+    private static $form_class_name = "Form";
 
     public static function get_css_folder()
     {
-        if (Config::inst()->get("TypographyTestPage", "css_folder")) {
-            $folder = Config::inst()->get("TypographyTestPage", "css_folder");
+        if (Config::inst()->get("TypographyTestPage_Controller", "css_folder")) {
+            $folder = Config::inst()->get("TypographyTestPage_Controller", "css_folder");
         } else {
             $folder = "themes/".SSViewer::current_theme()."/css/";
         }
@@ -51,57 +40,6 @@ class TypographyTestPage extends Page
         return $folder;
     }
 
-    /**
-     * use this to set up alternative form
-     * formats
-     * @var string
-     */
-    private static $form_class_name = "Form";
-
-    private static $defaults = array(
-        'URLSegment' => 'typo',
-        'ShowInMenus' => false,
-        'ShowInSearch' => false,
-        'Title' => 'Typography Test',
-        'Content' => 'auto-completed - do not alter',
-        'ShowInMenus' => false,
-        'ShowInSearch' => false,
-        'Sort' => 99999
-    );
-
-
-    public function canCreate($member = null)
-    {
-        if (TypographyTestPage::get()->First()) {
-            return false;
-        }
-        return parent::canCreate($member);
-    }
-
-    public function requireDefaultRecords()
-    {
-        if (self::$auto_include) {
-            $className = $this->class;
-            $page = $className::get()->First();
-            if (! $page) {
-                $page = new TypographyTestPage(self::$defaults);
-                $parent = SiteTree::get_by_link(self::$parent_url_segment);
-                if ($parent) {
-                    $page->ParentID = $parent->ID;
-                }
-                $page->writeToStage('Stage');
-                $page->publish('Stage', 'Live');
-                $page->URLSegment = self::$defaults['URLSegment'];
-                $page->writeToStage('Stage');
-                $page->publish('Stage', 'Live');
-                DB::alteration_message('TypographyTestPage', 'created');
-            }
-        }
-    }
-}
-
-class TypographyTestPage_Controller extends Page_Controller
-{
     private static $allowed_actions = array(
         "colours" => "ADMIN",
         "replacecolours" => "ADMIN"
@@ -110,19 +48,19 @@ class TypographyTestPage_Controller extends Page_Controller
     public function init()
     {
         parent::init();
-        Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery.js');
-        Requirements::javascript('typography/javascript/typography.js');
+        Page_Controller::init();
     }
 
     public function index()
     {
         $this->Content = $this->typographyhtml();
-        return array();
+        $this->Title = 'Typography Test Page';
+        return $this->renderWith('Page');
     }
 
     public function ShowFirstHeading()
     {
-        return Config::inst()->get("TypographyTestPage", "include_first_heading_in_test_copy");
+        return Config::inst()->get("TypographyTestPage_Controller", "include_first_heading_in_test_copy");
     }
 
     public function colours()
@@ -177,7 +115,7 @@ class TypographyTestPage_Controller extends Page_Controller
                     )
              )
         );
-        $formClassName = Config::inst()->get("TypographyTestPage", "form_class_name");
+        $formClassName = Config::inst()->get("TypographyTestPage_Controller", "form_class_name");
         $form = $formClassName::create(
             $controller = $this,
             $name = "TestForm",
@@ -251,7 +189,7 @@ class TypographyTestPage_Controller extends Page_Controller
 
     public function SiteColours()
     {
-        if ($folder = TypographyTestPage::get_css_folder()) {
+        if ($folder = TypographyTestPage_Controller::get_css_folder()) {
             Requirements::themedCSS("CssColorChart", "typography");
             //Requirements::javascript("typography/javascript/CssColorChart.js");
             $cssColorChart = new CssColorChart();
@@ -261,11 +199,11 @@ class TypographyTestPage_Controller extends Page_Controller
 
     public function replacecolours()
     {
-        if ($folder = Config::inst()->get("TypographyTestPage", "css_folder")) {
+        if ($folder = Config::inst()->get("TypographyTestPage_Controller", "css_folder")) {
             require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
             $cssColorChart = new CssColorChart();
-            return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::inst()->get("TypographyTestPage", "css_folder"));
+            return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::inst()->get("TypographyTestPage_Controller", "css_folder"));
         }
-        return "no folder specified, use TypographyTestPage::set_css_folder()";
+        return "no folder specified, use TypographyTestPage_Controller::set_css_folder()";
     }
 }
