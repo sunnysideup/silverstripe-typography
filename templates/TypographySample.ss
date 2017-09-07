@@ -6,7 +6,7 @@
     and <a href="#Form">form definitions</a>.
 </p>
 
-<h1 id="typography">Typography</h1>
+<h2 id="typography">Typography</h2>
 <p>Sections in the typography include:</p>
 <ul>
     <li><a href="#BasicStyles">Basic styles</a></li>
@@ -673,5 +673,3 @@
 <% end_if %>
 
 <hr />
-
-<h1 id="Form">Form Elements</h1>

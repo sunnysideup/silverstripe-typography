@@ -121,6 +121,7 @@ class TypographyTestPage_Controller extends Page_Controller
             $name = "TestForm",
             $fields = new FieldList(
                 // List the your fields here
+                new LiteralField($name = "HeaderFieldForForm", $title = '<h1 id="Form">Form Elements</h1>'),
                 new HeaderField($name = "HeaderField1", $title = "Default Header Field"),
                 new LiteralField($name = "LiteralField", "<p>NOTE: All fields up to EmailField are required and should be marked as such</p>"),
                 new TextField($name = "TextField1", $title = "Text Field Example 1"),
