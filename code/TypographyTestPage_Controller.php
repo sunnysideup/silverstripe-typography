@@ -34,7 +34,7 @@ class TypographyTestPage_Controller extends Page_Controller
         }
         $fullFolder = Director::baseFolder().'/'.$folder;
         if (!file_exists($fullFolder)) {
-            mkdir($fullFolder);
+            @mkdir($fullFolder);
             //user_error("could not find the default CSS folder $fullFolder");
             $folder = '';
         }
