@@ -30,7 +30,7 @@ class TypographyTestPage_Controller extends Page_Controller
         if (Config::inst()->get("TypographyTestPage_Controller", "css_folder")) {
             $folder = Config::inst()->get("TypographyTestPage_Controller", "css_folder");
         } else {
-            $folder = "themes/".SSViewer::current_theme()."/css/";
+            $folder = "themes/".Config::inst()->get('SSViewer', 'theme')."/css/";
         }
         $fullFolder = Director::baseFolder().'/'.$folder;
         if (!file_exists($fullFolder)) {
