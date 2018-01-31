@@ -3,8 +3,7 @@
 
 class TypographyTestForm extends Form
 {
-
-    function __construct($controller, $nameOfForm = 'TestForm')
+    public function __construct($controller, $nameOfForm = 'TestForm')
     {
         $array = array();
         $array[] = "green";
@@ -87,7 +86,16 @@ class TypographyTestForm extends Form
                     new FormAction("signup", "Sign up")
             ),
             $requiredFields = new RequiredFields(
-                "TextField1", "TextField2", "TextField3", "ErrorField1", "ErrorField2", "EmailField", "TextField3", "RightTitleField", "CheckboxField", "CheckboxSetField"
+                "TextField1",
+                "TextField2",
+                "TextField3",
+                "ErrorField1",
+                "ErrorField2",
+                "EmailField",
+                "TextField3",
+                "RightTitleField",
+                "CheckboxField",
+                "CheckboxSetField"
             )
         );
         $textAreaField->setColumns(7);
@@ -95,5 +103,4 @@ class TypographyTestForm extends Form
 
         return $returnResult;
     }
-
 }
