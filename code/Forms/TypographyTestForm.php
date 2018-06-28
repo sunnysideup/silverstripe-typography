@@ -2,26 +2,46 @@
 
 namespace Sunnysideup\Typography\Forms;
 
-use Form;
-use TextField;
+
+
 use ReadOnlyField;
-use GroupedDropdownField;
-use FieldList;
-use LiteralField;
-use HeaderField;
-use TextareaField;
-use EmailField;
-use DropdownField;
-use OptionsetField;
-use CheckboxSetField;
-use CurrencyField;
-use NumericField;
-use DateField;
-use FileField;
-use ConfirmedPasswordField;
-use CheckboxField;
-use FormAction;
-use RequiredFields;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\GroupedDropdownField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\CurrencyField;
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\FileField;
+use SilverStripe\Forms\ConfirmedPasswordField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Form;
+
 
 
 
@@ -73,7 +93,7 @@ class TypographyTestForm extends Form
                 // List the your fields here
                 new LiteralField($name = "HeaderFieldForForm", $title = '<h1 id="Form">Form Elements</h1>'),
                 new HeaderField($name = "HeaderField1", $title = "Default Header Field"),
-                new LiteralField($name = "LiteralField", "<p>NOTE: All fields up to EmailField are required and should be marked as such</p>"),
+                new LiteralField($name = LiteralField::class, "<p>NOTE: All fields up to EmailField are required and should be marked as such</p>"),
                 new TextField($name = "TextField1", $title = "Text Field Example 1"),
                 new TextField($name = "TextField2", $title = "Text Field Example 2"),
                 new TextField($name = "TextField3", $title = "Text Field Example 3"),
@@ -87,20 +107,20 @@ class TypographyTestForm extends Form
                 $errorField4,
                 new HeaderField($name = "HeaderField2b", $title = "Field with right title", 2),
                 $rightTitle,
-                $textAreaField = new TextareaField($name = "TextareaField", $title = "Textarea Field"),
-                new EmailField("EmailField", "Email address"),
+                $textAreaField = new TextareaField($name = TextareaField::class, $title = "Textarea Field"),
+                new EmailField(EmailField::class, "Email address"),
                 new HeaderField($name = "HeaderField2c", $title = "HeaderField Level 2", 2),
-                new DropdownField($name = "DropdownField", $title = "Dropdown Field", array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
-                new OptionsetField($name = "OptionsetField", $title = "Optionset Field", $array),
-                new CheckboxSetField($name = "CheckboxSetField", $title = "Checkbox Set Field", $array),
-                new CurrencyField($name = "CurrencyField", $title = "Bling bling"),
+                new DropdownField($name = DropdownField::class, $title = "Dropdown Field", array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
+                new OptionsetField($name = OptionsetField::class, $title = "Optionset Field", $array),
+                new CheckboxSetField($name = CheckboxSetField::class, $title = "Checkbox Set Field", $array),
+                new CurrencyField($name = CurrencyField::class, $title = "Bling bling"),
                 new HeaderField($name = "HeaderField3", $title = "Other Fields", 3),
-                new NumericField($name = "NumericField", $title = "Numeric Field "),
-                new DateField($name = "DateField", $title = "Date Field"),
+                new NumericField($name = NumericField::class, $title = "Numeric Field "),
+                new DateField($name = DateField::class, $title = "Date Field"),
                 new DateField($name = "DateTimeField", $title = "Date and Time Field"),
-                new FileField($name = "FileField", $title = "File Field"),
+                new FileField($name = FileField::class, $title = "File Field"),
                 new ConfirmedPasswordField($name = "ConfirmPasswordField", $title = "Password"),
-                new CheckboxField($name = "CheckboxField", $title = "Checkbox Field"),
+                new CheckboxField($name = CheckboxField::class, $title = "Checkbox Field"),
                 $groupedDropdownField,
                 new HeaderField($name = "HeaderField4", $title = "Read-only Field", 3),
                 $readonlyField
@@ -115,11 +135,11 @@ class TypographyTestForm extends Form
                 "TextField3",
                 "ErrorField1",
                 "ErrorField2",
-                "EmailField",
+                EmailField::class,
                 "TextField3",
                 "RightTitleField",
-                "CheckboxField",
-                "CheckboxSetField"
+                CheckboxField::class,
+                CheckboxSetField::class
             )
         );
         $textAreaField->setColumns(7);
