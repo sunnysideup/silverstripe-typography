@@ -2,6 +2,6 @@
 Name: 'TypographyRoutes'
 After: framework
 ---
-Director:
+SilverStripe\Control\Director:
   rules:
-    'typo//$Action/$ID/$OtherID/$Version': TypographyTestPage_Controller
+    'typo//$Action/$ID/$OtherID/$Version': Sunnysideup\Typography\TypographyTestPage_Controller
