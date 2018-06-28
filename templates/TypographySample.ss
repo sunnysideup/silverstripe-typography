@@ -651,7 +651,7 @@
             You can also add styles without the .typography prefix. These definitions will be added as <em>styles</em> to your HTML Editor
         </li>
         <li>Include your typography file into your project:
-            <pre>Requirements::themedCSS("typography", 'mysite');</pre>
+            <pre>Requirements::themedCSS("typography", 'app');</pre>
         </li>
         <li>Add the following line to your _config.php file:
             <pre>
