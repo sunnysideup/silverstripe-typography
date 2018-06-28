@@ -1,5 +1,16 @@
 <?php
 
+namespace Sunnysideup\Typography;
+
+use Page_Controller;
+use Config;
+use Director;
+use CssColorChart;
+use DBField;
+use TypographyTestForm;
+use Requirements;
+
+
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
  * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).

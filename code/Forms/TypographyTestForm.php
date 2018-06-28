@@ -1,5 +1,29 @@
 <?php
 
+namespace Sunnysideup\Typography\Forms;
+
+use Form;
+use TextField;
+use ReadOnlyField;
+use GroupedDropdownField;
+use FieldList;
+use LiteralField;
+use HeaderField;
+use TextareaField;
+use EmailField;
+use DropdownField;
+use OptionsetField;
+use CheckboxSetField;
+use CurrencyField;
+use NumericField;
+use DateField;
+use FileField;
+use ConfirmedPasswordField;
+use CheckboxField;
+use FormAction;
+use RequiredFields;
+
+
 
 class TypographyTestForm extends Form
 {
