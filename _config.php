@@ -6,8 +6,8 @@
 **/
 
 //HtmlEditorConfig::get('cms')->setOption('ContentCSS', 'themes/main/css/typography.css');
-
-HtmlEditorConfig::get('cms')
+use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
+TinyMCEConfig::get('cms')
 ->setOption(
     'valid_styles',
     array('*' => 'color,font-weight,font-style,text-decoration')

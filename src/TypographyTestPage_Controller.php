@@ -90,7 +90,7 @@ class TypographyTestPage_Controller extends PageController
     {
         $baseFolder = Director::baseFolder();
         require($baseFolder.'/typography/thirdparty/colourchart/csscolorchart.php');
-        $cssPath = array($baseFolder.'/themes/', $baseFolder.$this->project()."css/");
+        $cssPath = array($baseFolder.ThemeResourceLoader::inst()->getPath(''), $baseFolder.$this->project()."css/");
         echo '<h1>CSS colors found in: ' .
             (is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
         $themes = new CssColorChart();
