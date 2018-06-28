@@ -27,6 +27,5 @@
         "silverstripe/recipe-cms": "1.1.2"
     },
     "extra": {
-        "installer-name": "typography"
     }
 }
