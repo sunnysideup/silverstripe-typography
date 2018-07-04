@@ -121,7 +121,7 @@
     <h2>paragraph with images</h2>
 
     <p>
-        <a href="home"><img src="typography/images/kapiti.jpg" alt="loading image"  /></a>
+        <a href="home"><img src="resources/vendor/sunnysideup/typography/images/kapiti.jpg" alt="loading image"  /></a>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum aliquam ipsum nec rutrum. Donec posuere blandit sapien, a gravida enim feugiat sit amet. Integer non risus vel tortor egestas egestas id ut mauris. Donec purus ipsum, lobortis quis malesuada posuere, ornare a nibh. Cras pretium, neque sit amet porta ultricies, metus nisi vulputate ante, in pulvinar elit mi ac urna. Integer pretium consequat enim in viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sollicitudin, massa at dictum vulputate, eros odio adipiscing est, sit amet molestie turpis odio a enim. Donec rhoncus auctor mauris, vitae viverra odio condimentum vel. In lectus odio, posuere semper lobortis sed, dictum eget felis. Vivamus pharetra urna a risus molestie vehicula consequat sapien lacinia.
         In in purus eget mauris fringilla placerat.
         Proin pellentesque fermentum dui.
@@ -147,7 +147,7 @@
         Nullam mi.
     </p>
     <p>
-        <img src="typography/images/kapiti.jpg" alt="loading image"  class="right" />
+        <img src="resources/vendor/sunnysideup/typography/images/kapiti.jpg" alt="loading image"  class="right" />
         Maecenas in ante et erat malesuada elementum. Aliquam erat volutpat. Nunc pulvinar congue arcu, a tempor augue condimentum eget. Quisque ac tortor a turpis tempus vulputate. Maecenas id odio non purus luctus dictum. Sed ut nisi sit amet diam pharetra ultricies eu id dui. Maecenas varius ligula ut sem tristique eu facilisis diam feugiat. Donec quis aliquam diam. Proin aliquam, quam quis suscipit volutpat, odio neque condimentum sapien, eget scelerisque nulla metus in elit. Phasellus commodo erat eu mi porttitor accumsan. In hac habitasse platea dictumst. Sed placerat sapien id eros varius id interdum nulla dignissim. Nam risus quam, molestie at rutrum nec, pellentesque eu quam. In hac habitasse platea dictumst. Donec ipsum ligula, congue luctus rutrum ut, blandit vitae diam. In sit amet neque nisi, vitae scelerisque massa. Fusce aliquet aliquet libero, vel elementum augue vulputate eu. Nulla eget dolor pulvinar sem imperdiet porta sed quis leo. Quisque sit amet sem ut nisi aliquam varius et et dolor. Phasellus laoreet ultrices leo non dictum.
         In in purus eget mauris fringilla placerat.
         Proin pellentesque fermentum dui.
@@ -173,7 +173,7 @@
         Nullam mi.
     </p>
     <p>
-        <img src="typography/images/kapiti.jpg" alt="loading image"  class="left" />
+        <img src="resources/vendor/sunnysideup/typography/images/kapiti.jpg" alt="loading image"  class="left" />
         Cras ipsum ligula, porttitor sit amet posuere sed, fermentum a diam. Aenean varius lectus sit amet purus cursus malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam a sem nec mi gravida volutpat id non risus. Aenean elementum venenatis erat, a semper augue eleifend a. Integer faucibus purus vitae nisl vestibulum sit amet bibendum velit venenatis. Sed elit tortor, scelerisque sed bibendum ut, gravida dignissim ante. Phasellus sit amet sem ac dolor faucibus luctus. Quisque in nunc nec orci commodo sodales. Donec molestie viverra ligula, sit amet consequat velit placerat vel. Morbi sed justo augue, id mattis quam. Pellentesque blandit magna ut sem commodo vitae sodales sapien convallis. Donec tempor tellus et neque iaculis sodales. Sed viverra, leo nec molestie euismod, diam quam semper quam, vel lacinia nunc lacus id nisi.
         Etiam pulvinar arcu vel nibh bibendum ac consequat nunc pharetra. Donec dapibus justo eu nisl tempor auctor. Curabitur in nisl felis. Sed vehicula, lorem quis mollis vestibulum, erat tortor blandit mi, vestibulum molestie erat turpis id dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec facilisis nisi vel est vestibulum quis dapibus ante auctor. Fusce elementum, eros vitae luctus ornare, sem nibh egestas elit, et scelerisque dui nibh quis nunc. Sed facilisis ante vel nisi tristique a bibendum lorem scelerisque. Donec augue nibh, euismod consectetur suscipit ac, mollis et turpis. Proin vitae mi nibh. Vestibulum velit nisi, hendrerit sit amet sodales in, tempus sollicitudin felis.
         In in purus eget mauris fringilla placerat.
@@ -201,7 +201,7 @@
     </p>
     <div>
         <div class="captionImage">
-            <img  title="title" alt="alt" src="typography/images/kapiti.jpg" />
+            <img  title="title" alt="alt" src="resources/vendor/sunnysideup/typography/images/kapiti.jpg" />
             <p class="caption">caption has been added here...</p>
         </div>
         <p>
@@ -231,7 +231,7 @@
         </p>
     </div>
     <p>
-        <img src="typography/images/kapiti.jpg" alt="loading image"  class="left" />
+        <img src="resources/vendor/sunnysideup/typography/images/kapiti.jpg" alt="loading image"  class="left" />
         In sapien lectus, scelerisque eu ultrices venenatis, lacinia nec mauris. Praesent eget felis scelerisque mi feugiat suscipit et eu eros. Vestibulum ac risus sapien, quis faucibus mi. Praesent ac odio dui, nec congue ligula. Mauris vel magna leo. Nullam vitae libero at tellus feugiat tristique. Maecenas convallis rutrum justo, quis pellentesque est condimentum in. Fusce id purus lectus, at condimentum arcu. Aliquam pharetra luctus porttitor. Nunc ipsum magna, sagittis ut porta sit amet, interdum ut nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut volutpat iaculis nulla. Nulla neque neque, accumsan quis pretium eget, vehicula in nisi. Etiam laoreet tristique felis in tristique. Phasellus commodo, lacus ac auctor ultrices, est massa imperdiet massa, a tincidunt odio risus id lectus. Vivamus adipiscing tristique accumsan.
         In in purus eget mauris fringilla placerat.
         Proin pellentesque fermentum dui.
