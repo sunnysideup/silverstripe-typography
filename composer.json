@@ -1,6 +1,6 @@
 {
     "name": "sunnysideup/typography",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "description": "Add a typography test page to your silverstripe website / application.",
     "keywords": [
         "Silverstripe-CMS",
@@ -27,5 +27,9 @@
         "silverstripe/recipe-cms": "~1"
     },
     "extra": {
+        "expose": [
+          "images",
+          "css"
+        ]
     }
 }
