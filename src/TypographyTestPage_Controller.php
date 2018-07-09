@@ -99,6 +99,11 @@ class TypographyTestPage_Controller extends PageController
         echo $html;
     }
 
+    public function ClassName()
+    {
+        return 'TypographyTestPage';
+    }
+
     public function Form()
     {
         return TypographyTestForm::create($this, 'TestForm');
