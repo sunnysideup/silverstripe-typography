@@ -2,8 +2,6 @@
 
 namespace Sunnysideup\Typography\Forms;
 
-
-
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\GroupedDropdownField;
 use SilverStripe\Forms\LiteralField;
@@ -24,9 +22,6 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\ReadOnlyfield;
-
-
-
 
 class TypographyTestForm extends Form
 {

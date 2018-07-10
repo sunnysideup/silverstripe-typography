@@ -2,8 +2,6 @@
 
 namespace Sunnysideup\Typography\Api;
 
-
-
 /*
     CSS Color Chart generator from directories containing CSS files
     Author: Ralph Slooten

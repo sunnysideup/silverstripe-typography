@@ -2,13 +2,6 @@
 
 namespace Sunnysideup\Typography;
 
-
-
-
-
-
-
-
 use SilverStripe\Forms\Form;
 use SilverStripe\Core\Config\Config;
 use Sunnysideup\Typography\TypographyTestPage_Controller;
@@ -19,8 +12,6 @@ use Sunnysideup\Typography\Api\CssColorChart;
 use SilverStripe\ORM\FieldType\DBField;
 use Sunnysideup\Typography\Forms\TypographyTestForm;
 use SilverStripe\View\Requirements;
-
-
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
