@@ -1,6 +1,6 @@
 {
     "name": "sunnysideup/typography",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "description": "Add a typography test page to your silverstripe website / application.",
     "keywords": [
         "Silverstripe-CMS",
@@ -23,10 +23,13 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.6",
-        "silverstripe/cms": "~3.6"
+        "silverstripe/framework": "~4",
+        "silverstripe/recipe-cms": "~1"
     },
     "extra": {
-        "installer-name": "typography"
+        "expose": [
+          "images",
+          "css"
+        ]
     }
 }
