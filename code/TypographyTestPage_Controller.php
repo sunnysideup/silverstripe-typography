@@ -50,12 +50,17 @@ class TypographyTestPage_Controller extends Page_Controller
     {
         parent::init();
         Page_Controller::init();
+        $this->Content = $this->typographyhtml();
+        $this->Title = 'Typography Test Page';
+    }
+
+    public function getContent()
+    {
+        return $this->typographyhtml();
     }
 
     public function index()
     {
-        $this->Content = $this->typographyhtml();
-        $this->Title = 'Typography Test Page';
         return $this->renderWith('Page');
     }
 
@@ -89,7 +94,7 @@ class TypographyTestPage_Controller extends Page_Controller
 
     protected function typographyhtml()
     {
-        return $this->renderWith('TypographySample');
+        return $this->renderWith('TypographySampleInner');
     }
 
     public function RandomLinkExternal()

@@ -1,5 +1,6 @@
 <% if ShowFirstHeading %><h1>Formatting Test Page</h1><% end_if %>
-<p>Main sections on this page:
+<p>
+    Main sections on this page:
     <a href="#typography">typography definitions</a>,
     <a href="#WYSIWYG">how to setup WYSIWIG editor</a>,
     <% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %>
