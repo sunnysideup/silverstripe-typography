@@ -4,7 +4,6 @@ namespace Sunnysideup\Typography;
 
 use SilverStripe\Forms\Form;
 use SilverStripe\Core\Config\Config;
-use Sunnysideup\Typography\TypographyTestPage_Controller;
 use SilverStripe\View\SSViewer;
 use SilverStripe\Control\Director;
 use PageController;
@@ -18,7 +17,7 @@ use SilverStripe\View\Requirements;
  * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
  */
 
-class TypographyTestPage_Controller extends PageController
+class TypographyTestPageController extends PageController
 {
 
     /**
@@ -40,8 +39,8 @@ class TypographyTestPage_Controller extends PageController
 
     public static function get_css_folder()
     {
-        if (Config::inst()->get(TypographyTestPage_Controller::class, "css_folder")) {
-            $folder = Config::inst()->get(TypographyTestPage_Controller::class, "css_folder");
+        if (Config::inst()->get(TypographyTestPageController::class, "css_folder")) {
+            $folder = Config::inst()->get(TypographyTestPageController::class, "css_folder");
         } else {
             $folder = "themes/".Config::inst()->get(SSViewer::class, 'theme')."/css/";
         }
@@ -74,7 +73,7 @@ class TypographyTestPage_Controller extends PageController
 
     public function ShowFirstHeading()
     {
-        return Config::inst()->get(TypographyTestPage_Controller::class, "include_first_heading_in_test_copy");
+        return Config::inst()->get(TypographyTestPageController::class, "include_first_heading_in_test_copy");
     }
 
     public function colours()
@@ -122,7 +121,7 @@ class TypographyTestPage_Controller extends PageController
 
     public function SiteColours()
     {
-        if ($folder = TypographyTestPage_Controller::get_css_folder()) {
+        if ($folder = TypographyTestPageController::get_css_folder()) {
             Requirements::themedCSS('CssColorChart', "typography");
             //Requirements::javascript("typography/javascript/CssColorChart.js");
             $cssColorChart = new CssColorChart();
@@ -132,11 +131,11 @@ class TypographyTestPage_Controller extends PageController
 
     public function replacecolours()
     {
-        if ($folder = Config::inst()->get(TypographyTestPage_Controller::class, "css_folder")) {
+        if ($folder = Config::inst()->get(TypographyTestPageController::class, "css_folder")) {
             require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
             $cssColorChart = new CssColorChart();
-            return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::inst()->get(TypographyTestPage_Controller::class, "css_folder"));
+            return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::inst()->get(TypographyTestPageController::class, "css_folder"));
         }
-        return "no folder specified, use TypographyTestPage_Controller::set_css_folder()";
+        return "no folder specified, use TypographyTestPageController::set_css_folder()";
     }
 }

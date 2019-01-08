@@ -2,7 +2,7 @@
 # typography
 ###################################
 
-TypographyTestPage_Controller:
+Sunnysideup\Typography\TypographyTestPageController:
   css_folder: "themes/mytheme/css"
   include_first_heading_in_test_copy: false
   form_class_name: BootstrapForm

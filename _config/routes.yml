@@ -4,4 +4,4 @@ After: framework
 ---
 SilverStripe\Control\Director:
   rules:
-    'typo//$Action/$ID/$OtherID/$Version': Sunnysideup\Typography\TypographyTestPage_Controller
+    'typo//$Action/$ID/$OtherID/$Version': Sunnysideup\Typography\TypographyTestPageController
