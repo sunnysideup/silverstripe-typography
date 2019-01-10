@@ -1,4 +1,4 @@
 mappings:
   CssColorChart: Sunnysideup\Typography\Api\CssColorChart
-  TypographyTestPage_Controller: Sunnysideup\Typography\TypographyTestPage_Controller
+  TypographyTestPageController: Sunnysideup\Typography\TypographyTestPageController
   TypographyTestForm: Sunnysideup\Typography\Forms\TypographyTestForm
