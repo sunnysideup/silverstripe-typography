@@ -11,7 +11,7 @@ use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 TinyMCEConfig::get('cms')
 ->setOption(
     'valid_styles',
-    array('*' => 'color,font-weight,font-style,text-decoration')
+    array('*' => 'color,font-weight,font-style,text-decoration,padding-left')
 )
 ->setOption(
     'paste_as_text',
