@@ -30,5 +30,10 @@
           "images",
           "css"
         ]
-    }
+    },
+      "autoload": {
+          "psr-4": {
+              "Sunnysideup\\Typography\\": "src/"
+          }
+      }
 }
