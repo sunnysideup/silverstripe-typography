@@ -27,7 +27,7 @@ class TypographyTestForm extends Form
 {
     public function __construct($controller, $nameOfForm = 'TestForm')
     {
-        $array = array();
+        $array = [];
         $array[] = "green";
         $array[] = "yellow";
         $array[] = "blue";
@@ -50,19 +50,19 @@ class TypographyTestForm extends Form
         $groupedDropdownField = GroupedDropdownField::create(
              $name = "dropdown",
              $title = "Simple Grouped Dropdown",
-             $source = array(
-                    "primary" => array(
+             $source = [
+                    "primary" => [
                             "1" => "Green",
                             "2" => "Red",
                             "3" => "Blue",
-                            "4" => "Orange"
-                    ),
-                    "secondary" => array(
+                            "4" => "Orange",
+                    ],
+                    "secondary" => [
                             "11" => "Light Blue",
                             "12" => "Dark Brown",
-                            "13" => "Pinkish Red"
-                    )
-             )
+                            "13" => "Pinkish Red",
+                    ],
+             ]
         );
         $returnResult = parent::__construct(
             $controller,
@@ -88,7 +88,7 @@ class TypographyTestForm extends Form
                 $textAreaField = TextareaField::create($name = TextareaField::class, $title = "Textarea Field"),
                 EmailField::create(EmailField::class, "Email address"),
                 HeaderField::create($name = "HeaderField2c", $title = "HeaderField Level 2", 2),
-                DropdownField::create($name = DropdownField::class, $title = "Dropdown Field", array( 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB")),
+                DropdownField::create($name = DropdownField::class, $title = "Dropdown Field", [ 0 => "-- please select --", 1 => "test AAAA", 2 => "test BBBB"]),
                 OptionsetField::create($name = OptionsetField::class, $title = "Optionset Field", $array),
                 CheckboxSetField::create($name = CheckboxSetField::class, $title = "Checkbox Set Field", $array),
                 CurrencyField::create($name = CurrencyField::class, $title = "Bling bling"),

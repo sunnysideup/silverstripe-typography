@@ -19,7 +19,7 @@ class CssColorChart
      * list of files that are not included (e.g. /var/www/webroot/themes/myfile.css)
      * @var Array
      */
-    public $ignoreFiles = array();
+    public $ignoreFiles = [];
 
     /**
      * Find, parse, and return output
@@ -28,11 +28,11 @@ class CssColorChart
      */
     public function listColors($dir)
     {
-        $this->matchResults = array();
+        $this->matchResults = [];
 
-        $cssFiles = array();
+        $cssFiles = [];
         if (!is_array($dir)) {
-            $dir = array($dir);
+            $dir = [$dir];
         }
         foreach ($dir as $d) {
             $cssFiles = array_merge($cssFiles, $this->findCssFiles($d, '*.css'));
@@ -40,13 +40,13 @@ class CssColorChart
 
         $this->colorNames = $this->genColorNames();
 
-        $reg = array();
+        $reg = [];
         foreach ($this->colorNames as $cn => $hex) {
             $reg[] = preg_quote($cn, '/');
         }
         $this->colorRegex = implode('|', $reg);
 
-        $ignore = array();
+        $ignore = [];
         foreach ($this->ignoreFiles as $i) {
             $ignore[] = preg_quote($i, '/');
         }
@@ -71,7 +71,7 @@ class CssColorChart
     protected function findCssFiles($dir, $pattern)
     {
         if (is_file($dir)) {
-            return array($dir);
+            return [$dir];
         }
         $dir = rtrim(escapeshellcmd($dir), '/');
         $files = glob($dir.'/'.$pattern);
@@ -117,13 +117,13 @@ class CssColorChart
                                             $colorMatch[0][$x] = $colorMatch[0][$x].str_replace('#', '', $colorMatch[0][$x]);
                                         }
                                         $this->addToMatchResults(
-                                            array(
+                                            [
                                                 'color' => strtolower($colorMatch[0][$x]),
                                                 'stylesheet' => $cssFile,
                                                 'class' => $className,
                                                 'property' => $property,
-                                                'value' => $value
-                                            )
+                                                'value' => $value,
+                                            ]
                                         );
                                     }
                                 }
@@ -132,13 +132,13 @@ class CssColorChart
                             elseif (preg_match_all('/\b('.$this->colorRegex.')\b/i', $value, $colorMatch)) {
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $this->addToMatchResults(
-                                        array(
+                                        [
                                             'color' => strtolower($this->colorNames[strtolower($colorMatch[1][$x])]),
                                             'stylesheet' => $cssFile,
                                             'class' => $className,
                                             'property' => $property,
-                                            'value' => $value
-                                        )
+                                            'value' => $value,
+                                        ]
                                     );
                                 }
                             }
@@ -147,13 +147,13 @@ class CssColorChart
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $hexcolor = $this->rgb2hex($colorMatch[1][$x], $colorMatch[2][$x], $colorMatch[3][$x]);
                                     $this->addToMatchResults(
-                                        array(
+                                        [
                                             'color' => '#'.$hexcolor,
                                             'stylesheet' => $cssFile,
                                             'class' => $className,
                                             'property' => $property,
-                                            'value' => $value
-                                        )
+                                            'value' => $value,
+                                        ]
                                     );
                                 }
                             }
@@ -172,7 +172,7 @@ class CssColorChart
     protected function sortMatches()
     {
         if (count($this->matchResults) == 0) {
-            return array();
+            return [];
         }
 
         foreach ($this->matchResults as $code => $matches) {
@@ -189,7 +189,7 @@ class CssColorChart
         //Sort in ascending order by H, then S, then V and recompile the array
         array_multisort($hue, SORT_ASC, $sat, SORT_ASC, $val, SORT_ASC, $order);
 
-        $output = array();
+        $output = [];
         foreach ($order as $k => $v) {
             list($hue, $sat, $val) = $v;
             $rgb = $this->hsv2rgb($hue, $sat, $val);
@@ -209,7 +209,7 @@ class CssColorChart
     {
         $color = str_replace('#', '', $arr['color']);
         if (!isset($this->matchResults[$color])) {
-            $this->matchResults[$color] = array();
+            $this->matchResults[$color] = [];
         }
         array_push($this->matchResults[$color], $arr);
     }
@@ -249,7 +249,7 @@ class CssColorChart
     public function cssPrepare($buffer)
     {
         $buffer = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $buffer); // Strip out comments
-        $buffer = str_replace(array("\r\n", "\r", "\n", "\t"), '', $buffer);
+        $buffer = str_replace(["\r\n", "\r", "\n", "\t"], '', $buffer);
         $buffer = preg_replace('/\s+/', ' ', $buffer);
         $buffer = preg_replace('/,\s/', ',', $buffer);
         $buffer = preg_replace('/\s?\:\s?/', ':', $buffer);
@@ -269,7 +269,7 @@ class CssColorChart
     public function rgb2hex($r, $g, $b)
     {
         $out = "";
-        foreach (array($r, $g, $b) as $c) {
+        foreach ([$r, $g, $b] as $c) {
             $hex = base_convert($c, 10, 16);
             $out .= ($c < 16) ? ("0".$hex) : $hex;
         }
@@ -294,7 +294,7 @@ class CssColorChart
             $g = hexdec(substr($hex, 2, 2));
             $b = hexdec(substr($hex, 4, 2));
         }
-        return array($r, $g, $b);
+        return [$r, $g, $b];
     }
 
     /**
@@ -335,7 +335,7 @@ class CssColorChart
             $s = $delta / $max;
             $v = $max;
         }
-        return array($h,$s,$v);
+        return [$h,$s,$v];
     }
 
     /**
@@ -368,11 +368,11 @@ class CssColorChart
                 default: $r = $v; $g = $p; $b = $q; break;
             }
         }
-        return array(
+        return [
             (integer) ($r * 255 + 0.5),
             (integer) ($g * 255 + 0.5),
-            (integer) ($b * 255 + 0.5)
-        );
+            (integer) ($b * 255 + 0.5),
+        ];
     }
 
     /**
@@ -381,7 +381,7 @@ class CssColorChart
      */
     protected function genColorNames()
     {
-        return array(
+        return [
             "aliceblue"    =>    "#f0f8ff",
             "antiquewhite"    =>    "#faebd7",
             "aqua"    =>    "#00ffff",
@@ -528,7 +528,7 @@ class CssColorChart
             "white"    =>    "#ffffff",
             "whitesmoke"    =>    "#f5f5f5",
             "yellow"    =>    "#ffff00",
-            "yellowgreen"    =>    "#9acd32"
-        );
+            "yellowgreen"    =>    "#9acd32",
+        ];
     }
 }

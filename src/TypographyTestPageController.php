@@ -53,10 +53,10 @@ class TypographyTestPageController extends PageController
         return $folder;
     }
 
-    private static $allowed_actions = array(
+    private static $allowed_actions = [
         "colours" => "ADMIN",
-        "replacecolours" => "ADMIN"
-    );
+        "replacecolours" => "ADMIN",
+    ];
 
     public function init()
     {
@@ -80,7 +80,7 @@ class TypographyTestPageController extends PageController
     {
         $baseFolder = Director::baseFolder();
         require($baseFolder.'/typography/thirdparty/colourchart/csscolorchart.php');
-        $cssPath = array($baseFolder.ThemeResourceLoader::inst()->getPath(''), $baseFolder.$this->project()."css/");
+        $cssPath = [$baseFolder.ThemeResourceLoader::inst()->getPath(''), $baseFolder.$this->project()."css/"];
         echo '<h1>CSS colors found in: ' .
             (is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
         $themes = new CssColorChart();
