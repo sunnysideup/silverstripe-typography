@@ -27,6 +27,7 @@ class TypographyTestForm extends Form
 {
     public function __construct($controller, $nameOfForm = 'TestForm')
     {
+        /** @todo remove these literal field displaying error messages and fix correctly */
         $array = [];
         $array[] = "green";
         $array[] = "yellow";
@@ -79,9 +80,21 @@ class TypographyTestForm extends Form
                 HeaderField::create($name = "HeaderField2a", $title = "Error Messages", 2),
                 LiteralField::create($name = "ErrorExplanations", '<p>Below are some error messages, some of them only show up after you have placed your cursor on the field and not completed it (i.e. a reminder to complete the field)</p>'),
                 $errorField0,
+                LiteralField::create(
+                    'GoodMessage',
+                    '<span class="message good">message shown when something is good<a href="#" class="close-message">×</a></span>'
+                ),
                 $errorField1,
+                LiteralField::create(
+                    'RequiredMessage',
+                    '<span class="message bad">message shown when something is required<a href="#" class="close-message">×</a></span>'
+                ),
                 $errorField2,
                 $errorField3,
+                LiteralField::create(
+                    'BadMessage',
+                    '<span class="message required">there is an error<a href="#" class="close-message">×</a></span>'
+                ),
                 $errorField4,
                 HeaderField::create($name = "HeaderField2b", $title = "Field with right title", 2),
                 $rightTitle,
