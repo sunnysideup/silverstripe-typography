@@ -44,7 +44,7 @@ class CssColorChart
         foreach ($this->colorNames as $cn => $hex) {
             $reg[] = preg_quote($cn, '/');
         }
-        $this->colorRegex = implode($reg, '|');
+        $this->colorRegex = implode( '|', $reg);
 
         $ignore = [];
         foreach ($this->ignoreFiles as $i) {
