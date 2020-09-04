@@ -49,21 +49,21 @@ class TypographyTestForm extends Form
         $readonlyField = ReadOnlyfield::create($name = 'ReadOnlyField', $title = 'ReadOnlyField');
         $readonlyField->setValue('read only value');
         $groupedDropdownField = GroupedDropdownField::create(
-             $name = 'dropdown',
-             $title = 'Simple Grouped Dropdown',
-             $source = [
-                 'primary' => [
-                     '1' => 'Green',
-                     '2' => 'Red',
-                     '3' => 'Blue',
-                     '4' => 'Orange',
-                 ],
-                 'secondary' => [
-                     '11' => 'Light Blue',
-                     '12' => 'Dark Brown',
-                     '13' => 'Pinkish Red',
-                 ],
-             ]
+            $name = 'dropdown',
+            $title = 'Simple Grouped Dropdown',
+            $source = [
+                'primary' => [
+                    '1' => 'Green',
+                    '2' => 'Red',
+                    '3' => 'Blue',
+                    '4' => 'Orange',
+                ],
+                'secondary' => [
+                    '11' => 'Light Blue',
+                    '12' => 'Dark Brown',
+                    '13' => 'Pinkish Red',
+                ],
+            ]
         );
         $returnResult = parent::__construct(
             $controller,
@@ -118,7 +118,7 @@ class TypographyTestForm extends Form
             ),
             $actions = FieldList::create(
                     // List the action buttons here
-                    FormAction::create('signup', 'Sign up')
+                FormAction::create('signup', 'Sign up')
             ),
             $requiredFields = RequiredFields::create(
                 'TextField1',

@@ -143,7 +143,7 @@ class csscolorchart
         $out = '';
         foreach ([$r, $g, $b] as $c) {
             $hex = base_convert($c, 10, 16);
-            $out .= ($c < 16) ? ('0' . $hex) : $hex;
+            $out .= $c < 16 ? ('0' . $hex) : $hex;
         }
         return $out;
     }
@@ -232,12 +232,24 @@ class csscolorchart
             $t = ($v * (1.0 - ((1.0 - $f) * $s)));
 
             switch ($hi) {
-                case 0: $r = $v; $g = $t; $b = $p; break;
-                case 1: $r = $q; $g = $v; $b = $p; break;
-                case 2: $r = $p; $g = $v; $b = $t; break;
-                case 3: $r = $p; $g = $q; $b = $v; break;
-                case 4: $r = $t; $g = $p; $b = $v; break;
-                default: $r = $v; $g = $p; $b = $q; break;
+                case 0:
+                    $r = $v; $g = $t; $b = $p;
+                    break;
+                case 1:
+                    $r = $q; $g = $v; $b = $p;
+                    break;
+                case 2:
+                    $r = $p; $g = $v; $b = $t;
+                    break;
+                case 3:
+                    $r = $p; $g = $q; $b = $v;
+                    break;
+                case 4:
+                    $r = $t; $g = $p; $b = $v;
+                    break;
+                default:
+                    $r = $v; $g = $p; $b = $q;
+                    break;
             }
         }
         return [
@@ -294,7 +306,7 @@ class csscolorchart
                                     $matchLength = strlen($colorMatch[1][$x]);
                                     if ($matchLength === 7 || $matchLength === 4) {
                                         if ($matchLength === 4) {
-                                            $colorMatch[0][$x] = $colorMatch[0][$x] . str_replace('#', '', $colorMatch[0][$x]);
+                                            $colorMatch[0][$x] .= str_replace('#', '', $colorMatch[0][$x]);
                                         }
                                         $this->addToMatchResults(
                                             [
