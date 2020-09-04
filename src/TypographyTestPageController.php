@@ -115,7 +115,8 @@ class TypographyTestPageController extends PageController
 
     public function SiteColours()
     {
-        if ($folder = TypographyTestPageController::get_css_folder()) {
+        $folder = TypographyTestPageController::get_css_folder();
+        if ($folder) {
             Requirements::themedCSS('CssColorChart', 'typography');
             //Requirements::javascript("typography/javascript/CssColorChart.js");
             $cssColorChart = new CssColorChart();
@@ -125,10 +126,11 @@ class TypographyTestPageController extends PageController
 
     public function replacecolours()
     {
-        if ($folder = Config::inst()->get(TypographyTestPageController::class, 'css_folder')) {
+        $folder = Config::inst()->get(TypographyTestPageController::class, 'css_folder');
+        if ($folder) {
             require_once(Director::baseFolder() . '/typography/thirdparty/csscolorchart.php');
             $cssColorChart = new CssColorChart();
-            return $cssColorChart->replaceColours(Director::baseFolder() . '/' . Config::inst()->get(TypographyTestPageController::class, 'css_folder'));
+            return $cssColorChart->replaceColours(Director::baseFolder() . '/' . $folder);
         }
         return 'no folder specified, use TypographyTestPageController::set_css_folder()';
     }

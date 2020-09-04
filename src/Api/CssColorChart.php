@@ -40,7 +40,7 @@ class CssColorChart
         $this->colorNames = $this->genColorNames();
 
         $reg = [];
-        foreach ($this->colorNames as $cn => $hex) {
+        foreach (array_keys($this->colorNames) as $cn) {
             $reg[] = preg_quote($cn, '/');
         }
         $this->colorRegex = implode('|', $reg);
@@ -54,7 +54,7 @@ class CssColorChart
 
         foreach ($cssFiles as $cssFile) {
             if (strlen($ignoreRegex) === 2 || ! preg_match('/' . $ignoreRegex . '/', $cssFile)) {
-                $colors = $this->findColors($cssFile);
+                $this->findColors($cssFile);
             }
         }
 
@@ -272,9 +272,7 @@ class CssColorChart
                                         );
                                     }
                                 }
-                            }
-                            /* named colors */
-                            elseif (preg_match_all('/\b(' . $this->colorRegex . ')\b/i', $value, $colorMatch)) {
+                            } elseif (preg_match_all('/\b(' . $this->colorRegex . ')\b/i', $value, $colorMatch)) {
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $this->addToMatchResults(
                                         [
@@ -286,9 +284,7 @@ class CssColorChart
                                         ]
                                     );
                                 }
-                            }
-                            /* rgb colors */
-                            elseif (preg_match_all('/\brgba?\s?\(\s?(\d+)\s?,\s?(\d+)\s?,\s?(\d+)\s?(,\s?(\d+)\s?)?\)/i', $value, $colorMatch)) {
+                            } elseif (preg_match_all('/\brgba?\s?\(\s?(\d+)\s?,\s?(\d+)\s?,\s?(\d+)\s?(,\s?(\d+)\s?)?\)/i', $value, $colorMatch)) {
                                 for ($x = 0; $x < count($colorMatch[0]); $x++) {
                                     $hexcolor = $this->rgb2hex($colorMatch[1][$x], $colorMatch[2][$x], $colorMatch[3][$x]);
                                     $this->addToMatchResults(
@@ -319,7 +315,7 @@ class CssColorChart
             return [];
         }
 
-        foreach ($this->matchResults as $code => $matches) {
+        foreach (array_keys($this->matchResults) as $code) {
             $rgb = $this->hex2rgb($code);
             $order[] = $this->rgb2hsv($rgb[0], $rgb[1], $rgb[2]);
         }
@@ -334,7 +330,7 @@ class CssColorChart
         array_multisort($hue, SORT_ASC, $sat, SORT_ASC, $val, SORT_ASC, $order);
 
         $output = [];
-        foreach ($order as $k => $v) {
+        foreach ($order as $v) {
             list($hue, $sat, $val) = $v;
             $rgb = $this->hsv2rgb($hue, $sat, $val);
             $hexcolor = $this->rgb2hex($rgb[0], $rgb[1], $rgb[2]);
