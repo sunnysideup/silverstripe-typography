@@ -2,15 +2,15 @@
 
 namespace Sunnysideup\Typography;
 
-use SilverStripe\Forms\Form;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\View\SSViewer;
-use SilverStripe\Control\Director;
 use PageController;
-use Sunnysideup\Typography\Api\CssColorChart;
+use SilverStripe\Control\Director;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\Form;
 use SilverStripe\ORM\FieldType\DBField;
-use Sunnysideup\Typography\Forms\TypographyTestForm;
 use SilverStripe\View\Requirements;
+use SilverStripe\View\SSViewer;
+use Sunnysideup\Typography\Api\CssColorChart;
+use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
@@ -19,7 +19,6 @@ use SilverStripe\View\Requirements;
 
 class TypographyTestPageController extends PageController
 {
-
     /**
      * @var string
      */
@@ -37,26 +36,26 @@ class TypographyTestPageController extends PageController
      */
     private static $form_class_name = Form::class;
 
+    private static $allowed_actions = [
+        'colours' => 'ADMIN',
+        'replacecolours' => 'ADMIN',
+    ];
+
     public static function get_css_folder()
     {
-        if (Config::inst()->get(TypographyTestPageController::class, "css_folder")) {
-            $folder = Config::inst()->get(TypographyTestPageController::class, "css_folder");
+        if (Config::inst()->get(TypographyTestPageController::class, 'css_folder')) {
+            $folder = Config::inst()->get(TypographyTestPageController::class, 'css_folder');
         } else {
-            $folder = "themes/".Config::inst()->get(SSViewer::class, 'theme')."/css/";
+            $folder = 'themes/' . Config::inst()->get(SSViewer::class, 'theme') . '/css/';
         }
-        $fullFolder = Director::baseFolder().'/'.$folder;
-        if (!file_exists($fullFolder)) {
+        $fullFolder = Director::baseFolder() . '/' . $folder;
+        if (! file_exists($fullFolder)) {
             @mkdir($fullFolder);
             //user_error("could not find the default CSS folder $fullFolder");
             $folder = '';
         }
         return $folder;
     }
-
-    private static $allowed_actions = [
-        "colours" => "ADMIN",
-        "replacecolours" => "ADMIN",
-    ];
 
     public function init()
     {
@@ -73,19 +72,19 @@ class TypographyTestPageController extends PageController
 
     public function ShowFirstHeading()
     {
-        return Config::inst()->get(TypographyTestPageController::class, "include_first_heading_in_test_copy");
+        return Config::inst()->get(TypographyTestPageController::class, 'include_first_heading_in_test_copy');
     }
 
     public function colours()
     {
         $baseFolder = Director::baseFolder();
-        require($baseFolder.'/typography/thirdparty/colourchart/csscolorchart.php');
-        $cssPath = [$baseFolder.ThemeResourceLoader::inst()->getPath(''), $baseFolder.$this->project()."css/"];
+        require($baseFolder . '/typography/thirdparty/colourchart/csscolorchart.php');
+        $cssPath = [$baseFolder . ThemeResourceLoader::inst()->getPath(''), $baseFolder . $this->project() . 'css/'];
         echo '<h1>CSS colors found in: ' .
-            (is_array($cssPath)?implode($cssPath, ', '):$cssPath) . '</h1>';
+            (is_array($cssPath) ? implode($cssPath, ', ') : $cssPath) . '</h1>';
         $themes = new CssColorChart();
         $colourList = $themes->listColors($cssPath);
-        $html = DBField::create_field("HTMLText", $colourList);
+        $html = DBField::create_field('HTMLText', $colourList);
         echo $html;
     }
 
@@ -104,38 +103,38 @@ class TypographyTestPageController extends PageController
         $this->redirectBack();
     }
 
-    protected function typographyhtml()
-    {
-        return $this->renderWith('TypographySample');
-    }
-
     public function RandomLinkExternal()
     {
-        return "http://www.google.com/?q=".rand(0, 100000);
+        return 'http://www.google.com/?q=' . rand(0, 100000);
     }
 
     public function RandomLinkInternal()
     {
-        return "/?q=".rand(0, 100000);
+        return '/?q=' . rand(0, 100000);
     }
 
     public function SiteColours()
     {
         if ($folder = TypographyTestPageController::get_css_folder()) {
-            Requirements::themedCSS('CssColorChart', "typography");
+            Requirements::themedCSS('CssColorChart', 'typography');
             //Requirements::javascript("typography/javascript/CssColorChart.js");
             $cssColorChart = new CssColorChart();
-            return $cssColorChart->listColors(Director::baseFolder()."/".$folder);
+            return $cssColorChart->listColors(Director::baseFolder() . '/' . $folder);
         }
     }
 
     public function replacecolours()
     {
-        if ($folder = Config::inst()->get(TypographyTestPageController::class, "css_folder")) {
-            require_once(Director::baseFolder()."/typography/thirdparty/csscolorchart.php");
+        if ($folder = Config::inst()->get(TypographyTestPageController::class, 'css_folder')) {
+            require_once(Director::baseFolder() . '/typography/thirdparty/csscolorchart.php');
             $cssColorChart = new CssColorChart();
-            return $cssColorChart->replaceColours(Director::baseFolder()."/".Config::inst()->get(TypographyTestPageController::class, "css_folder"));
+            return $cssColorChart->replaceColours(Director::baseFolder() . '/' . Config::inst()->get(TypographyTestPageController::class, 'css_folder'));
         }
-        return "no folder specified, use TypographyTestPageController::set_css_folder()";
+        return 'no folder specified, use TypographyTestPageController::set_css_folder()';
+    }
+
+    protected function typographyhtml()
+    {
+        return $this->renderWith('TypographySample');
     }
 }
