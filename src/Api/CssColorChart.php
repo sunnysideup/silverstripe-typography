@@ -314,7 +314,10 @@ class CssColorChart
         if (count($this->matchResults) === 0) {
             return [];
         }
-
+        $order = [];
+        $hue = 0;
+        $sat = 0;
+        $val = 0;
         foreach (array_keys($this->matchResults) as $code) {
             $rgb = $this->hex2rgb($code);
             $order[] = $this->rgb2hsv($rgb[0], $rgb[1], $rgb[2]);
