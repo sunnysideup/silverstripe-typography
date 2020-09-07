@@ -79,9 +79,15 @@ class TypographyTestPageController extends PageController
     {
         $baseFolder = Director::baseFolder();
         require($baseFolder . '/typography/thirdparty/colourchart/csscolorchart.php');
-        $cssPath = [$baseFolder . ThemeResourceLoader::inst()->getPath(''), $baseFolder . $this->project() . 'css/'];
-        echo '<h1>CSS colors found in: ' .
-            (is_array($cssPath) ? implode($cssPath, ', ') : $cssPath) . '</h1>';
+        $cssPath = [
+            $baseFolder . ThemeResourceLoader::inst()->getPath(''),
+            $baseFolder .
+            $this->project() . 'css/',
+            $this->project() . 'client/css/',
+            $this->project() . 'dist/',
+        ];
+        $foundIn = implode($cssPath, ', ');
+        echo '<h1>CSS colors found in: ' .$foundIn. '</h1>';
         $themes = new CssColorChart();
         $colourList = $themes->listColors($cssPath);
         $html = DBField::create_field('HTMLText', $colourList);

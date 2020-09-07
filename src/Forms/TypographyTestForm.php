@@ -34,20 +34,20 @@ class TypographyTestForm extends Form
         $array[] = 'blue';
         $array[] = 'pink';
         $array[] = 'orange';
-        $errorField0 = TextField::create($name = 'ErrorField0', $title = 'Text Field Example 1');
-        $errorField0->setCustomValidationMessage('message shown when something is good', 'good');
-        $errorField1 = TextField::create($name = 'ErrorField1', $title = 'Text Field Example 2');
-        $errorField1->setCustomValidationMessage('message shown when something is bad', 'bad');
-        $errorField2 = TextField::create($name = 'ErrorField2', $title = 'Text Field Example 3');
-        $errorField2->setCustomValidationMessage('message shown when something is bad', 'bad');
-        $errorField3 = TextField::create($name = 'ErrorField3', $title = 'Text Field Example 4');
-        $errorField3->setCustomValidationMessage('there is an error', 'required');
-        $errorField4 = TextField::create($name = 'ErrorField4', $title = 'Text Field Example 5');
-        $errorField4->setCustomValidationMessage('custom validation error');
-        $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default');
-        $rightTitle->setRightTitle('right title here');
-        $readonlyField = ReadOnlyfield::create($name = 'ReadOnlyField', $title = 'ReadOnlyField');
-        $readonlyField->setValue('read only value');
+        $errorField0 = TextField::create($name = 'ErrorField0', $title = 'Text Field Example 1')
+            ->setCustomValidationMessage('message shown when something is good');
+        $errorField1 = TextField::create($name = 'ErrorField1', $title = 'Text Field Example 2')
+            ->setCustomValidationMessage('message shown when something is bad');
+        $errorField2 = TextField::create($name = 'ErrorField2', $title = 'Text Field Example 3')
+            ->setCustomValidationMessage('message shown when something is bad');
+        $errorField3 = TextField::create($name = 'ErrorField3', $title = 'Text Field Example 4')
+            ->setCustomValidationMessage('there is an error');
+        $errorField4 = TextField::create($name = 'ErrorField4', $title = 'Text Field Example 5')
+            ->setCustomValidationMessage('custom validation error');
+        $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default')
+            ->setRightTitle('right title here');
+        $readonlyField = ReadOnlyfield::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
+            ->setValue('read only value');
         $groupedDropdownField = GroupedDropdownField::create(
             $name = 'dropdown',
             $title = 'Simple Grouped Dropdown',

@@ -85,7 +85,10 @@ class CssColorChart
 
     /**
      * Convert RGB array to hexidecimal string
-     * @param Array(red, $r green, blue)
+     * @param int $r
+     * @param int $g
+     * @param int $b
+     *
      * @return string
      */
     public function rgb2hex($r, $g, $b)
@@ -121,8 +124,10 @@ class CssColorChart
 
     /**
      * Convert RGB array to HSV array
-     * @param Array(red, $r green, blue)
-     * @return Array(hue, saturation, value)
+     * @param int $r
+     * @param int $g
+     * @param int $b
+     *
      */
     public function rgb2hsv($r, $g, $b)
     {
