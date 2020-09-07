@@ -167,13 +167,15 @@ class CssColorChart
 
     /**
      * Convert HSV array to RGB array
-     * @param Array(hue, $h saturation, value)
-     * @return Array(red, green, blue)
+     * @param float $h
+     * @param float $s
+     * @param float $v
+     *@return Array(red, green, blue)
      */
     public function hsv2rgb($h, $s, $v)
     {
         //Convert HSV to RGB
-        if ($s === 0) {
+        if ($s == 0) {
             $r = $g = $b = $v;
         } else {
             $h /= 60.0;
@@ -312,7 +314,6 @@ class CssColorChart
 
     /**
      * Sort $this->matchResults by HSV values
-     * @param null
      */
     protected function sortMatches()
     {
