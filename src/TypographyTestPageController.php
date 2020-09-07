@@ -20,7 +20,7 @@ use Sunnysideup\Typography\Forms\TypographyTestForm;
 class TypographyTestPageController extends PageController
 {
     /**
-     * @var string
+     * @var bool
      */
     private static $include_first_heading_in_test_copy = false;
 
