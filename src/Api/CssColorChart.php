@@ -127,7 +127,6 @@ class CssColorChart
      * @param int $r
      * @param int $g
      * @param int $b
-     *
      */
     public function rgb2hsv($r, $g, $b)
     {
@@ -175,7 +174,7 @@ class CssColorChart
     public function hsv2rgb($h, $s, $v)
     {
         //Convert HSV to RGB
-        if ($s == 0) {
+        if ($s === 0) {
             $r = $g = $b = $v;
         } else {
             $h /= 60.0;

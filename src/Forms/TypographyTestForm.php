@@ -140,6 +140,5 @@ class TypographyTestForm extends Form
             $actions,
             $requiredFields
         );
-
     }
 }

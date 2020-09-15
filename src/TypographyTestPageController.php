@@ -87,7 +87,7 @@ class TypographyTestPageController extends PageController
             $this->project() . 'dist/',
         ];
         $foundIn = implode($cssPath, ', ');
-        echo '<h1>CSS colors found in: ' .$foundIn. '</h1>';
+        echo '<h1>CSS colors found in: ' . $foundIn . '</h1>';
         $themes = new CssColorChart();
         $colourList = $themes->listColors($cssPath);
         $html = DBField::create_field('HTMLText', $colourList);
