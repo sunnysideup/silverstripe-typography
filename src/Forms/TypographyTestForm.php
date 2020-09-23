@@ -45,7 +45,7 @@ class TypographyTestForm extends Form
         $errorField4 = TextField::create($name = 'ErrorField4', $title = 'Text Field Example 5')
             ->setCustomValidationMessage('custom validation error');
         $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default')
-            ->setRightTitle('right title here');
+            ->setDescription('right title here');
         $readonlyField = ReadOnlyfield::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
             ->setValue('read only value');
         $groupedDropdownField = GroupedDropdownField::create(
