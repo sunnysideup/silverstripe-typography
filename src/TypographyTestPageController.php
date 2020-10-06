@@ -123,7 +123,7 @@ class TypographyTestPageController extends PageController
     {
         $folder = TypographyTestPageController::get_css_folder();
         if ($folder) {
-            Requirements::themedCSS('CssColorChart');
+            Requirements::themedCSS('client/css/CssColorChart');
             //Requirements::javascript("typography/javascript/CssColorChart.js");
             $cssColorChart = new CssColorChart();
             return $cssColorChart->listColors(Director::baseFolder() . '/' . $folder);
