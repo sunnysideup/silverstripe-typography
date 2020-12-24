@@ -3,7 +3,7 @@
     <a href="#typography">typography definitions</a>,
     <a href="#WYSIWYG">how to setup WYSIWIG editor</a>,
     <% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %>
-    and <a href="#Form">form definitions</a>.
+    and <a href="#TypographyTestForm_TestForm">form definitions</a>.
 </p>
 
 <h2 id="typography">Typography</h2>
