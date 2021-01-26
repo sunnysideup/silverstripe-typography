@@ -2,7 +2,6 @@
 <p>Main sections on this page:
     <a href="#typography">typography definitions</a>,
     <a href="#WYSIWYG">how to setup WYSIWIG editor</a>,
-    <% if SiteColours %><a href="#CssColorChart">colour charts</a>, <% end_if %>
     and <a href="#TypographyTestForm_TestForm">form definitions</a>.
 </p>
 
@@ -751,11 +750,5 @@
 </div>
 
 
-<% if SiteColours %>
-<div id="CssColorChart">
-    <h1>Colours currently used on the site:</h1>
-    $SiteColours
-</div>
-<% end_if %>
 
 <hr />

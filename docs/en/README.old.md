@@ -4,8 +4,6 @@ TYPOGRAPHY
 This module helps you to review form and typography
 formatting on a Silverstripe Website.
 
-It also helps you simplify your colour palettes.
-
 
 Developer
 -----------------------------------------------
@@ -35,4 +33,3 @@ Installation Instructions
 (or similar) as necessary.
 In the _config/ folder of this module
 you can usually find some examples of config options (if any).
-

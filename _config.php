@@ -6,25 +6,8 @@
  **/
 
 //HtmlEditorConfig::get('cms')->setOption('ContentCSS', 'themes/main/css/typography.css');
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 
-TinyMCEConfig::get('cms')
-    ->setOption(
-        'valid_styles',
-        ['*' => 'color,font-weight,font-style,text-decoration,padding-left']
-)
-    ->setOption(
-        'paste_as_text',
-        true
-)
-    ->setOption(
-        'paste_text_sticky',
-        true
-)
-    ->setOption(
-        'paste_text_sticky_default',
-        true
-)
-    ->enablePlugins(
-        'autolink'
-);
+
+if (strpos(ltrim($_SERVER['REQUEST_URI'], '/'), 'admin') === 0) {
+    HtmlEditorConfigExtras::init();
+}
