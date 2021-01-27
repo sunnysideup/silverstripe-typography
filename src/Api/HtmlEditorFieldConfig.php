@@ -4,7 +4,7 @@ namespace Sunnysideup\Typography\Api;
 
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 
-class HtmlEditorFieldConfig
+class HtmlEditorConfigExtras
 {
     public static function init()
     {
