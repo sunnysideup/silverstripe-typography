@@ -39,6 +39,11 @@ class TypographyTestPageController extends PageController
         return $this->renderWith('Page');
     }
 
+    public function IsTypographyTestPage() : bool
+    {
+        return true;
+    }
+
     public function ShowFirstHeading()
     {
         return Config::inst()->get(TypographyTestPageController::class, 'include_first_heading_in_test_copy');
