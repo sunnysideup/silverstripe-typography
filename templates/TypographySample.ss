@@ -127,7 +127,8 @@
     </p>
     <p>
 
-    <a href="home"><img src="https://dummyimage.com/{$ImageWidth}x{$ImageHeight}/ffcc00/fff.png&text=placeholder" alt="loading image" class="leftAlone"/></a>
+    <a href="home">
+        <img src="https://dummyimage.com/{$ImageWidth}x{$ImageHeight}/ffcc00/fff.png&text=placeholder" alt="loading image" class="leftAlone"/></a>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum aliquam ipsum nec rutrum. Donec posuere blandit sapien, a gravida enim feugiat sit amet. Integer non risus vel tortor egestas egestas id ut mauris. Donec purus ipsum, lobortis quis malesuada posuere, ornare a nibh. Cras pretium, neque sit amet porta ultricies, metus nisi vulputate ante, in pulvinar elit mi ac urna. Integer pretium consequat enim in viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer sollicitudin, massa at dictum vulputate, eros odio adipiscing est, sit amet molestie turpis odio a enim. Donec rhoncus auctor mauris, vitae viverra odio condimentum vel. In lectus odio, posuere semper lobortis sed, dictum eget felis. Vivamus pharetra urna a risus molestie vehicula consequat sapien lacinia.
         In in purus eget mauris fringilla placerat.
         Proin pellentesque fermentum dui.
@@ -232,7 +233,7 @@
         Proin ultrices nulla id enim.
         Nullam mi.
     </p>
-    <div class="captionImage leftAlone" style="width: $ImageWidth;">
+    <div class="captionImage leftAlone" style="width: {$ImageWidth}px;">
         <img title="title" alt="alt" src="https://picsum.photos/seed/picsum/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
         <p class="caption leftAlone">leftAlone with caption</p>
     </div>
@@ -261,7 +262,7 @@
     Proin ultrices nulla id enim.
     Nullam mi.
     </p>
-    <div class="captionImage center" style="width: $ImageWidth;">
+    <div class="captionImage center" style="width: {$ImageWidth}px;">
         <img title="title" alt="alt" src="https://www.fillmurray.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="center" />
         <p class="caption center">center with caption</p>
     </div>
@@ -290,7 +291,7 @@
         Proin ultrices nulla id enim.
         Nullam mi.
     </p>
-    <div class="captionImage left" style="width: $ImageWidth;">
+    <div class="captionImage left" style="width: {$ImageWidth}px;">
         <img title="title" alt="alt" src="https://placebeard.it/{$ImageWidth}x{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="left" />
         <p class="caption left">left wrap with caption</p>
     </div>
@@ -319,7 +320,7 @@
         Proin ultrices nulla id enim.
         Nullam mi.
     </p>
-    <div class="captionImage right" style="width: $ImageWidth;">
+    <div class="captionImage right" style="width: {$ImageWidth}px;">
         <img title="title" alt="alt" src="https://www.placecage.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="right" />
         <p class="caption right">right wrap with caption</p>
     </div>
