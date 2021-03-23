@@ -14,6 +14,18 @@ use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 class TypographyTestPageController extends PageController
 {
+    protected $URLSegment = 'typo';
+
+    /**
+     * @var int
+     */
+    private static $image_min_width_height = 200;
+
+    /**
+     * @var int
+     */
+    private static $image_max_width_height = 600;
+
     /**
      * @var bool
      */
@@ -39,7 +51,7 @@ class TypographyTestPageController extends PageController
         return $this->renderWith('Page');
     }
 
-    public function IsTypographyTestPage() : bool
+    public function IsTypographyTestPage(): bool
     {
         return true;
     }
@@ -47,6 +59,16 @@ class TypographyTestPageController extends PageController
     public function ShowFirstHeading()
     {
         return Config::inst()->get(TypographyTestPageController::class, 'include_first_heading_in_test_copy');
+    }
+
+    public function ImageWidth(): int
+    {
+        return $this->getWidthHeight('width');
+    }
+
+    public function ImageHeight(): int
+    {
+        return $this->getWidthHeight('height');
     }
 
     public function ClassName()
@@ -72,6 +94,29 @@ class TypographyTestPageController extends PageController
     public function RandomLinkInternal()
     {
         return '/?q=' . rand(0, 100000);
+    }
+
+    public function getURLSegment()
+    {
+        return $this->URLSegment;
+    }
+
+    public function Link($action = null)
+    {
+        $link = parent::link($action);
+        return str_replace(self::class, 'typo', $link);
+    }
+
+    protected function getWidthHeight(?string $type = 'width'): int
+    {
+        if ($this->request->getVar('image' . $type)) {
+            $min = $max = intval($this->request->getVar('image' . $type));
+        } else {
+            $min = $this->Config()->get('image_min_width_height');
+            $max = $this->Config()->get('image_max_width_height');
+        }
+
+        return rand($min, $max);
     }
 
     protected function typographyhtml()
