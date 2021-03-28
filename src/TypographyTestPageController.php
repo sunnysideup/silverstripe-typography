@@ -110,7 +110,7 @@ class TypographyTestPageController extends PageController
     protected function getWidthHeight(?string $type = 'width'): int
     {
         if ($this->request->getVar('image' . $type)) {
-            $min = intval($this->request->getVar('image' . $type));
+            $min = (int) $this->request->getVar('image' . $type);
             $max = $min;
         } else {
             $min = $this->Config()->get('image_min_width_height');
