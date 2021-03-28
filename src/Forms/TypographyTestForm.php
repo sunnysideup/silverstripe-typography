@@ -18,7 +18,7 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\OptionsetField;
-use SilverStripe\Forms\ReadOnlyfield;
+use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
@@ -46,7 +46,7 @@ class TypographyTestForm extends Form
             ->setCustomValidationMessage('custom validation error');
         $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default')
             ->setDescription('right title here');
-        $readonlyField = ReadOnlyfield::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
+        $readonlyField = \SilverStripe\Forms\ReadonlyField::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
             ->setValue('read only value');
         $groupedDropdownField = GroupedDropdownField::create(
             $name = 'dropdown',

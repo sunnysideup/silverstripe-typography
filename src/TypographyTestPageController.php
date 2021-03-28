@@ -38,7 +38,7 @@ class TypographyTestPageController extends PageController
      */
     private static $form_class_name = Form::class;
 
-    public function init()
+    protected function init()
     {
         parent::init();
         PageController::init();
@@ -63,7 +63,7 @@ class TypographyTestPageController extends PageController
 
     public function ImageWidth(): int
     {
-        return $this->getWidthHeight('width');
+        return $this->getWidthHeight();
     }
 
     public function ImageHeight(): int
@@ -110,7 +110,8 @@ class TypographyTestPageController extends PageController
     protected function getWidthHeight(?string $type = 'width'): int
     {
         if ($this->request->getVar('image' . $type)) {
-            $min = $max = intval($this->request->getVar('image' . $type));
+            $min = intval($this->request->getVar('image' . $type));
+            $max = $min;
         } else {
             $min = $this->Config()->get('image_min_width_height');
             $max = $this->Config()->get('image_max_width_height');
