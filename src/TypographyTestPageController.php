@@ -38,12 +38,6 @@ class TypographyTestPageController extends PageController
      */
     private static $form_class_name = Form::class;
 
-    protected function init()
-    {
-        parent::init();
-        PageController::init();
-    }
-
     public function index()
     {
         $this->Content = $this->typographyhtml();
@@ -105,6 +99,12 @@ class TypographyTestPageController extends PageController
     {
         $link = parent::link($action);
         return str_replace(self::class, 'typo', $link);
+    }
+
+    protected function init()
+    {
+        parent::init();
+        PageController::init();
     }
 
     protected function getWidthHeight(?string $type = 'width'): int
