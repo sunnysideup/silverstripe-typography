@@ -27,6 +27,7 @@ class HtmlEditorConfigExtras
             )
             ->enablePlugins(
                 'autolink'
-            );
+            )
+        ;
     }
 }
