@@ -27,8 +27,7 @@
     },
     "extra": {
         "expose": [
-          "images",
-          "css"
+          "images"
         ]
     },
       "autoload": {
