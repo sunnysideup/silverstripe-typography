@@ -11,7 +11,6 @@ use Sunnysideup\Typography\Forms\TypographyTestForm;
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
  * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
  */
-
 class TypographyTestPageController extends PageController
 {
     protected $URLSegment = 'typo';
@@ -33,21 +32,17 @@ class TypographyTestPageController extends PageController
 
     /**
      * use this to set up alternative form
-     * formats
+     * formats.
+     *
      * @var string
      */
     private static $form_class_name = Form::class;
-
-    protected function init()
-    {
-        parent::init();
-        PageController::init();
-    }
 
     public function index()
     {
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
+
         return $this->renderWith('Page');
     }
 
@@ -104,7 +99,14 @@ class TypographyTestPageController extends PageController
     public function Link($action = null)
     {
         $link = parent::link($action);
+
         return str_replace(self::class, 'typo', $link);
+    }
+
+    protected function init()
+    {
+        parent::init();
+        PageController::init();
     }
 
     protected function getWidthHeight(?string $type = 'width'): int

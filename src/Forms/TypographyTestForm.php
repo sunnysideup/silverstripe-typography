@@ -18,7 +18,6 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\OptionsetField;
-use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
@@ -35,19 +34,26 @@ class TypographyTestForm extends Form
         $array[] = 'pink';
         $array[] = 'orange';
         $errorField0 = TextField::create($name = 'ErrorField0', $title = 'Text Field Example 1')
-            ->setCustomValidationMessage('message shown when something is good');
+            ->setCustomValidationMessage('message shown when something is good')
+        ;
         $errorField1 = TextField::create($name = 'ErrorField1', $title = 'Text Field Example 2')
-            ->setCustomValidationMessage('message shown when something is bad');
+            ->setCustomValidationMessage('message shown when something is bad')
+        ;
         $errorField2 = TextField::create($name = 'ErrorField2', $title = 'Text Field Example 3')
-            ->setCustomValidationMessage('message shown when something is bad');
+            ->setCustomValidationMessage('message shown when something is bad')
+        ;
         $errorField3 = TextField::create($name = 'ErrorField3', $title = 'Text Field Example 4')
-            ->setCustomValidationMessage('there is an error');
+            ->setCustomValidationMessage('there is an error')
+        ;
         $errorField4 = TextField::create($name = 'ErrorField4', $title = 'Text Field Example 5')
-            ->setCustomValidationMessage('custom validation error');
+            ->setCustomValidationMessage('custom validation error')
+        ;
         $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default')
-            ->setDescription('right title here');
+            ->setDescription('right title here')
+        ;
         $readonlyField = \SilverStripe\Forms\ReadonlyField::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
-            ->setValue('read only value');
+            ->setValue('read only value')
+        ;
         $groupedDropdownField = GroupedDropdownField::create(
             $name = 'dropdown',
             $title = 'Simple Grouped Dropdown',
