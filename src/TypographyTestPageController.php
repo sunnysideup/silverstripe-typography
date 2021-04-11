@@ -9,7 +9,8 @@ use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
- * TO DO: add a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
+ *
+ * @todoadd a testing sheet with a list of checks to be made (e.g. italics, bold, paragraphy) - done YES / NO, a date and a person who checked it (member).
  */
 class TypographyTestPageController extends PageController
 {
