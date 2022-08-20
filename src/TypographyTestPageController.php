@@ -44,7 +44,7 @@ class TypographyTestPageController extends PageController
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
 
-        return $this->renderWith('Page');
+        return $this->renderWith(\Page::class);
     }
 
     public function IsTypographyTestPage(): bool
