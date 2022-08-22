@@ -207,7 +207,7 @@
         Nullam mi.
     </p>
     <p>
-        <img src="https://placeimg.com/{$ImageWidth}/{$ImageHeight}/arch" alt="loading image"  class="right" />
+        <img src="https://placeimg.com/{$ImageWidth}/{$ImageHeight}/arch" alt="loading image" class="right" />
         Cras ipsum ligula, porttitor sit amet posuere sed, fermentum a diam. Aenean varius lectus sit amet purus cursus malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam a sem nec mi gravida volutpat id non risus. Aenean elementum venenatis erat, a semper augue eleifend a. Integer faucibus purus vitae nisl vestibulum sit amet bibendum velit venenatis. Sed elit tortor, scelerisque sed bibendum ut, gravida dignissim ante. Phasellus sit amet sem ac dolor faucibus luctus. Quisque in nunc nec orci commodo sodales. Donec molestie viverra ligula, sit amet consequat velit placerat vel. Morbi sed justo augue, id mattis quam. Pellentesque blandit magna ut sem commodo vitae sodales sapien convallis. Donec tempor tellus et neque iaculis sodales. Sed viverra, leo nec molestie euismod, diam quam semper quam, vel lacinia nunc lacus id nisi.
         Etiam pulvinar arcu vel nibh bibendum ac consequat nunc pharetra. Donec dapibus justo eu nisl tempor auctor. Curabitur in nisl felis. Sed vehicula, lorem quis mollis vestibulum, erat tortor blandit mi, vestibulum molestie erat turpis id dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec facilisis nisi vel est vestibulum quis dapibus ante auctor. Fusce elementum, eros vitae luctus ornare, sem nibh egestas elit, et scelerisque dui nibh quis nunc. Sed facilisis ante vel nisi tristique a bibendum lorem scelerisque. Donec augue nibh, euismod consectetur suscipit ac, mollis et turpis. Proin vitae mi nibh. Vestibulum velit nisi, hendrerit sit amet sodales in, tempus sollicitudin felis.
         In in purus eget mauris fringilla placerat.
@@ -234,7 +234,7 @@
         Nullam mi.
     </p>
     <div class="captionImage leftAlone" style="width: {$ImageWidth}px;">
-        <img title="title" alt="alt" src="https://picsum.photos/seed/picsum/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
+        <img title="title" alt="alt" src="https://picsum.photos/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
         <p class="caption leftAlone">leftAlone with caption</p>
     </div>
     <p>
@@ -726,7 +726,9 @@
 
 <div id="Videos">
     <p>Below are two examples of videos as they are typically inserted into the editor:</p>
-    <p> <div class="media leftAlone"><iframe src="https://player.vimeo.com/video/19441320" width="600" height="338" frameborder="0" title="Graphic design can change your life" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></p>
+    <h4>Vimeo</h4>
+    <p> <div class="media leftAlone"><iframe src="https://player.vimeo.com/video/740010189" width="600" height="338" frameborder="0" title="Graphic design can change your life" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div></p>
+    <h4>YouTubew</h4>
     <p><div class="media leftAlone"><iframe width="480" height="270" src="https://www.youtube.com/embed/E8mjzRmQSN0?feature=oembed" frameborder="0" allowfullscreen=""></iframe></div></p>
 
 </div>
