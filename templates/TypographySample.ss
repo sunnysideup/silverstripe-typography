@@ -234,7 +234,7 @@
         Nullam mi.
     </p>
     <div class="captionImage leftAlone" style="width: {$ImageWidth}px;">
-        <img title="title" alt="alt" src="https://picsum.photos/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
+        <img title="title" alt="alt" src="https://www.fillmurray.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
         <p class="caption leftAlone">leftAlone with caption</p>
     </div>
     <p>
@@ -263,7 +263,7 @@
     Nullam mi.
     </p>
     <div class="captionImage center" style="width: {$ImageWidth}px;">
-        <img title="title" alt="alt" src="https://www.fillmurray.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="center" />
+        <img title="title" alt="alt" src="https://placebeard.it/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="center" />
         <p class="caption center">center with caption</p>
     </div>
     <p>
