@@ -234,11 +234,7 @@
         Nullam mi.
     </p>
     <div class="captionImage leftAlone" style="width: {$ImageWidth}px;">
-<<<<<<< HEAD
         <img title="title" alt="alt" src="https://www.fillmurray.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
-=======
-        <img loading="lazy" title="title" alt="alt" src="https://picsum.photos/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="leftAlone" />
->>>>>>> 5fe5f810e5eee62065895521d923907ec06da1fb
         <p class="caption leftAlone">leftAlone with caption</p>
     </div>
     <p>
