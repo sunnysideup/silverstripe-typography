@@ -263,11 +263,7 @@
     Nullam mi.
     </p>
     <div class="captionImage center" style="width: {$ImageWidth}px;">
-<<<<<<< HEAD
-        <img title="title" alt="alt" src="https://placebeard.it/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="center" />
-=======
         <img loading="lazy" title="title" alt="alt" src="https://www.fillmurray.com/{$ImageWidth}/{$ImageHeight}" width="{$ImageWidth}" height="{$ImageHeight}" class="center" />
->>>>>>> 5fe5f810e5eee62065895521d923907ec06da1fb
         <p class="caption center">center with caption</p>
     </div>
     <p>
