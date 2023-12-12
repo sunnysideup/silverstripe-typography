@@ -100,7 +100,7 @@ class TypographyTestPageController extends PageController
     {
         $link = parent::link($action);
 
-        return str_replace(self::class, 'typo', $link);
+        return str_replace(self::class, 'typo', (string) $link);
     }
 
     protected function init()
