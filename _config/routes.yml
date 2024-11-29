@@ -1,18 +1,13 @@
 ---
-Name: 'TypographyRoutes'
+Name: 'TypographyRoutes_DEV_AND_TEST'
 After: framework
 Only:
-  environment: dev
+  environment:
+    - dev
+    - test
 ---
 SilverStripe\Control\Director:
   rules:
     'typo//$Action/$ID/$OtherID/$Version': Sunnysideup\Typography\TypographyTestPageController
 ---
-Name: 'TypographyRoutes'
-After: framework
-Only:
-  environment: test
----
-SilverStripe\Control\Director:
-  rules:
-    'typo//$Action/$ID/$OtherID/$Version': Sunnysideup\Typography\TypographyTestPageController
+
