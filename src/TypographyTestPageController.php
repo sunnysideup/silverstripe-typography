@@ -42,7 +42,6 @@ class TypographyTestPageController extends PageController
     {
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
-
         return $this->renderWith(\Page::class);
     }
 
@@ -123,6 +122,11 @@ class TypographyTestPageController extends PageController
     }
 
     protected function typographyhtml()
+    {
+        return $this->renderWith('TypographySample');
+    }
+
+    public function Layout()
     {
         return $this->renderWith('TypographySample');
     }

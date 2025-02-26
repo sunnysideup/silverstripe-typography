@@ -1,3 +1,5 @@
+<div style="max-width: 770px; margin: 100px auto 100px" class="typography">
+
 <% if ShowFirstHeading %><h1>Formatting Test Page</h1><% end_if %>
 <p>Main sections on this page:
     <a href="#typography">typography definitions</a>,
@@ -762,3 +764,4 @@
 
 
 <hr />
+</div>
