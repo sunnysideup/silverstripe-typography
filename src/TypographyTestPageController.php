@@ -6,6 +6,8 @@ use PageController;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Form;
 use Sunnysideup\Typography\Forms\TypographyTestForm;
+use Page;
+use SilverStripe\Control\Director;
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
@@ -42,7 +44,8 @@ class TypographyTestPageController extends PageController
     {
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
-        return $this->renderWith(\Page::class);
+
+        return $this->renderWith(Page::class);
     }
 
     public function IsTypographyTestPage(): bool
@@ -106,6 +109,9 @@ class TypographyTestPageController extends PageController
     {
         parent::init();
         PageController::init();
+        if (Director::isLive()) {
+            return $this->httpError(403, 'This page is not available in live mode.');
+        }
     }
 
     protected function getWidthHeight(?string $type = 'width'): int
