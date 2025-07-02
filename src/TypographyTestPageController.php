@@ -85,12 +85,12 @@ class TypographyTestPageController extends PageController
 
     public function RandomLinkExternal()
     {
-        return 'http://www.google.com/?q=' . rand(0, 100000);
+        return 'http://www.google.com/?q=' . rand();
     }
 
     public function RandomLinkInternal()
     {
-        return '/?q=' . rand(0, 100000);
+        return '/?q=' . rand();
     }
 
     public function getURLSegment()
