@@ -2,16 +2,15 @@
 
 namespace Sunnysideup\Typography;
 
+use Page;
 use PageController;
+use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Form;
 use Sunnysideup\Typography\Forms\TypographyTestForm;
-use Page;
-use SilverStripe\Control\Director;
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
- *
  */
 class TypographyTestPageController extends PageController
 {

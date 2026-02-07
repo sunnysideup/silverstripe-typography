@@ -120,7 +120,7 @@ class TypographyTestForm extends Form
             $readonlyField
         );
         $actions = FieldList::create(
-                // List the action buttons here
+            // List the action buttons here
             FormAction::create('signup', 'Sign up')
         );
         $requiredFields = RequiredFields::create(
