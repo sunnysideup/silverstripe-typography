@@ -23,16 +23,16 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^4.0 || ^5.0"
+        "silverstripe/framework": "^6.0"
     },
     "extra": {
         "expose": [
-          "images"
+            "images"
         ]
     },
-      "autoload": {
-          "psr-4": {
-              "Sunnysideup\\Typography\\": "src/"
-          }
-      }
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\Typography\\": "src/"
+        }
+    }
 }
