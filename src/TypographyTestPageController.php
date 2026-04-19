@@ -84,12 +84,12 @@ class TypographyTestPageController extends PageController
 
     public function RandomLinkExternal()
     {
-        return 'http://www.google.com/?q=' . rand();
+        return 'http://www.google.com/?q=' . random_int(0, mt_getrandmax());
     }
 
     public function RandomLinkInternal()
     {
-        return '/?q=' . rand();
+        return '/?q=' . random_int(0, mt_getrandmax());
     }
 
     public function getURLSegment()
@@ -123,7 +123,7 @@ class TypographyTestPageController extends PageController
             $max = $this->Config()->get('image_max_width_height');
         }
 
-        return rand($min, $max);
+        return random_int($min, $max);
     }
 
     protected function typographyhtml()
