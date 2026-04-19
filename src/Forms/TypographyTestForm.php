@@ -2,6 +2,8 @@
 
 namespace Sunnysideup\Typography\Forms;
 
+use SilverStripe\Forms\ReadonlyField;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\ConfirmedPasswordField;
@@ -18,7 +20,6 @@ use SilverStripe\Forms\HeaderField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\OptionsetField;
-use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 
@@ -51,7 +52,7 @@ class TypographyTestForm extends Form
         $rightTitle = TextField::create($name = 'RightTitleField', $title = 'Left Title is Default')
             ->setDescription('right title here')
         ;
-        $readonlyField = \SilverStripe\Forms\ReadonlyField::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
+        $readonlyField = ReadonlyField::create($name = 'ReadOnlyField', $title = 'ReadOnlyField')
             ->setValue('read only value')
         ;
         $groupedDropdownField = GroupedDropdownField::create(
@@ -123,7 +124,7 @@ class TypographyTestForm extends Form
             // List the action buttons here
             FormAction::create('signup', 'Sign up')
         );
-        $requiredFields = RequiredFields::create(
+        $requiredFields = RequiredFieldsValidator::create(
             'TextField1',
             'TextField2',
             'TextField3',
