@@ -1,4 +1,43 @@
 {
+<<<<<<< HEAD
+    "name": "sunnysideup/typography",
+    "type": "silverstripe-vendormodule",
+    "description": "Add a typography test page to your silverstripe website / application.",
+    "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
+        "typography",
+        "developer tool",
+        "front-end design",
+        "font styling",
+        "fonts",
+        "html editing",
+        "TinyMCE"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Nicolaas Francken",
+            "email": "modules@sunnysideup.co.nz",
+            "role": "lead developer"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^6.0"
+    },
+    "extra": {
+        "expose": [
+            "images"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\Typography\\": "src/"
+        }
+    }
+}
+=======
   "name": "sunnysideup/typography",
   "type": "silverstripe-vendormodule",
   "description": "Add a typography test page to your silverstripe website / application.",
@@ -36,3 +75,4 @@
     }
   }
 }
+>>>>>>> origin/HEAD
