@@ -2,6 +2,7 @@
 
 namespace Sunnysideup\Typography;
 
+use Override;
 use Page;
 use PageController;
 use SilverStripe\Control\Director;
@@ -97,6 +98,7 @@ class TypographyTestPageController extends PageController
         return $this->URLSegment;
     }
 
+    #[Override]
     public function Link($action = null)
     {
         $link = parent::link($action);
@@ -104,6 +106,7 @@ class TypographyTestPageController extends PageController
         return str_replace(self::class, 'typo', (string) $link);
     }
 
+    #[Override]
     protected function init()
     {
         parent::init();
