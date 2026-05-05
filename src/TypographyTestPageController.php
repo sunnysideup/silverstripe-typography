@@ -39,7 +39,7 @@ class TypographyTestPageController extends PageController
      */
     private static $form_class_name = Form::class;
 
-    public function index()
+    public function index($request)
     {
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
