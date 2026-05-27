@@ -11,6 +11,7 @@ use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 /**
  * Add a page to your site that allows you to view all the html that can be used in the typography section - if applied correctly.
+ *
  */
 class TypographyTestPageController extends PageController
 {
