@@ -2,6 +2,7 @@
 
 namespace Sunnysideup\Typography;
 
+use SilverStripe\Control\HTTPRequest;
 use Override;
 use Page;
 use PageController;
