@@ -8,6 +8,7 @@ use PageController;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Form;
+use SilverStripe\Control\HTTPRequest;
 use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 /**
@@ -40,7 +41,7 @@ class TypographyTestPageController extends PageController
      */
     private static $form_class_name = Form::class;
 
-    public function index()
+    public function index(HTTPRequest $request)
     {
         $this->Content = $this->typographyhtml();
         $this->Title = 'Typography Test Page';
