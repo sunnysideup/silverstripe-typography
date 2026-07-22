@@ -9,7 +9,6 @@ use PageController;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Form;
-use SilverStripe\Control\HTTPRequest;
 use Sunnysideup\Typography\Forms\TypographyTestForm;
 
 /**
